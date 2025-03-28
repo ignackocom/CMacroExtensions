@@ -16,24 +16,24 @@
 
 
 /******************************************************************************
-* @brief
+* \brief
 *	Align a given value up to the specified alignment.
 *
-* @param
+* \param
 *	value - The original value to be aligned.
-* @param
+* \param
 *	alignment - The alignment boundary that the value should conform to.
 * 
-* @return
+* \return
 *	The smallest value greater than or equal to `value` that is a multiple of `alignment`.
 *
-* @note
+* \note
 *
-* @code
+* \code
 *   ...
 *   value = ALIGN_UP(24, 16);
 *	...
-* @endcode
+* \endcode
 *
 */
 #define ALIGN_UP(value, alignment) \
@@ -41,48 +41,48 @@
 
 
 /******************************************************************************
-* @brief
+* \brief
 *	Align a given value down to the specified alignment.
 *
-* @param
+* \param
 *	value - The original value to be aligned.
-* @param
+* \param
 *	alignment - The alignment boundary that the value should conform to.
 *
-* @return
+* \return
 *	The largest value less than or equal to `value` that is a multiple of `alignment`.
 *
-* @note
+* \note
 *
-* @code
+* \code
 *   ...
 *   value = ALIGN_DOWN(24, 16);
 *	...
-* @endcode
+* \endcode
 *
 */
 #define ALIGN_DOWN(value, alignment) ((value) & ~((alignment) - 1))
 
 
 /******************************************************************************
-* @brief
+* \brief
 *	Check if a value is aligned to the specified alignment.
 *
-* @param
+* \param
 *	value - The value to be checked.
-* @param
+* \param
 *	alignment - The alignment boundary to check against.
 *
-* @return
+* \return
 *	Non-zero (true) if `value` is aligned to `alignment`, zero (false) otherwise.
 *
-* @note
+* \note
 *
-* @code
+* \code
 *   ...
 *   b = IS_ALIGNED(24, 16);
 *	...
-* @endcode
+* \endcode
 *
 */
 #define IS_ALIGNED(value, alignment) \
@@ -90,24 +90,24 @@
 
 
 /******************************************************************************
-* @brief
+* \brief
 *	Align a pointer to the nearest higher aligned address.
 *
-* @param
+* \param
 *	ptr - The pointer to be aligned.
-* @param
+* \param
 *	alignment - The alignment boundary that the pointer should conform to.
 *
-* @return
+* \return
 *	A pointer that is aligned to the specified `alignment`.
 *
-* @note
+* \note
 *
-* @code
+* \code
 *   ...
 *   ptr = ALIGN_PTR(ptr, 16);
 *	...
-* @endcode
+* \endcode
 *
 */
 #define ALIGN_PTR(ptr, alignment) \
@@ -115,24 +115,24 @@
 
 
 /******************************************************************************
-* @brief
+* \brief
 *	Align a size value up to the nearest multiple.
 *
-* @param
+* \param
 *	value - The size value to be aligned.
-* @param
+* \param
 *	multiple - The multiple to align the value to.
 *
-* @return
+* \return
 *	The nearest size value that is a multiple of `multiple`.
 *
-* @note
+* \note
 *
-* @code
+* \code
 *   ...
 *   value = ALIGN_SIZE(24, 16);
 *	...
-* @endcode
+* \endcode
 *
 */
 #define ALIGN_SIZE(value, multiple) \
