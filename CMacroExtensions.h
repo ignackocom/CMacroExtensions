@@ -49,6 +49,7 @@
 #include "Obsolete.h"
 #include "Paste.h"
 #include "Restrict.h"
+#include "Status.h"
 #include "StdargExt.h"
 #include "StringExt.h"
 #include "Stringify.h"
