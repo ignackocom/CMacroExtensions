@@ -18,7 +18,7 @@
 #include "CMacroExtensions.h"
 
 
-long CMACROS_VERSION(void)
+long CMACROEXTENSIONS_VERSION(void)
 {
     return (CMACROEXTENSIONS_H);
 }
