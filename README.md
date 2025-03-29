@@ -1,5 +1,5 @@
 # CMacroExtensions
-C Macro Extensions
+C Macro Extensions, a library of commonly used macros in the C language.
 
 Example of use
 
