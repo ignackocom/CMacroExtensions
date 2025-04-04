@@ -65,6 +65,63 @@ INT_MAIN_ARGC_ARGV_BEGIN
     printf("\n");
 }
 
+/* Array.h */
+{
+#if defined(__clang__)
+#pragma clang unsafe_buffer_usage begin
+#endif /* defined(__clang__) */
+
+    int arry[5] = { 'a','r','r','a','y' };
+
+    printf("Array test\n");
+
+    printf("arry                                      = ['%c','%c','%c','%c','%c']\n", arry[0], arry[1], arry[2], arry[3], arry[4]);
+    printf("ARRAY_GET_SIZE(arry)                      = %llu\n", ARRAY_GET_SIZE(arry));
+    printf("ARRAY_GET_ITEM_SIZE(arry)                 = %zu\n", ARRAY_GET_ITEM_SIZE(arry));
+    printf("(void*)ARRAY_GET_ITEM_PTR(arry, 0)        = %p\n", (void*)ARRAY_GET_ITEM_PTR(arry, 0));
+
+    printf("ARRAY_GET_ITEM(arry, 0)                   = %c\n", ARRAY_GET_ITEM(arry, 0));
+    printf("ARRAY_SET_ITEM(arry, 0, 'B')\n");
+    ARRAY_SET_ITEM(arry, 0, 'B');
+    printf("ARRAY_GET_ITEM(arry, 0)                   = %c\n", ARRAY_GET_ITEM(arry, 0));
+    printf("\n");
+
+    printf("arry items                                = ");
+    ARRAY_PRINT(arry, ARRAY_GET_SIZE(arry));
+    printf("\n");
+
+    printf("ARRAY_REVERSE(arry, ARRAY_GET_SIZE(arry)) = ");
+    ARRAY_REVERSE(arry, ARRAY_GET_SIZE(arry));
+    ARRAY_PRINT(arry, ARRAY_GET_SIZE(arry));
+    printf("\n");
+
+    printf("ARRAY_SORT_ASCENDING(arry, ARRAY_GET_SIZE(arry))    = ");
+    ARRAY_SORT_ASCENDING(arry, ARRAY_GET_SIZE(arry));
+    ARRAY_PRINT(arry, ARRAY_GET_SIZE(arry));
+    printf("\n");
+
+    printf("ARRAY_SORT_DESCENDING(arry, ARRAY_GET_SIZE(arry))    = ");
+    ARRAY_SORT_DESCENDING(arry, ARRAY_GET_SIZE(arry));
+    ARRAY_PRINT(arry, ARRAY_GET_SIZE(arry));
+    printf("\n");
+
+    printf("ARRAY_SET(arry, ARRAY_GET_SIZE(arry), 97) = ");
+    ARRAY_SET(arry, ARRAY_GET_SIZE(arry), 97);
+    ARRAY_PRINT(arry, ARRAY_GET_SIZE(arry));
+    printf("\n");
+
+    printf("ARRAY_CLEAR(arry, ARRAY_GET_SIZE(arry))   = ");
+    ARRAY_CLEAR(arry, ARRAY_GET_SIZE(arry));
+    ARRAY_PRINT(arry, ARRAY_GET_SIZE(arry));
+    printf("\n");
+
+    printf("\n");
+
+#if defined(__clang__)
+#pragma clang unsafe_buffer_usage end
+#endif /* defined(__clang__) */
+}
+
 /* Assert.h */
 {
     int i;
@@ -408,3 +465,4 @@ INT_MAIN_ARGC_ARGV_END
 
 
 # History of changes ...
+2025 04 04 ARRAY macros added
