@@ -142,10 +142,6 @@ INT_MAIN_ARGC_ARGV_BEGIN
 
     printf("Bcd test\n");
 
-    printf("BIN_IS_VALID(14)   = %d\n", BIN_IS_VALID(14));
-    printf("BIN_IS_VALID(100)  = %d\n", BIN_IS_VALID(100));
-    printf("BCD_IS_VALID(0x14) = %d\n", BCD_IS_VALID(0x14));
-    printf("BCD_IS_VALID(0x1F) = %d\n", BCD_IS_VALID(0x1F));
     printf("BIN_TO_BCD(14)     = 0x%02X\n", (unsigned char)BIN_TO_BCD(14));
     printf("BCD_TO_BIN(0x14)   = %02d\n", BCD_TO_BIN(0x14));
 
