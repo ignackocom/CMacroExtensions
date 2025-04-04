@@ -15,50 +15,6 @@
 
 /******************************************************************************
 * \brief
-*	Checks if the provided byte is a valid BIN representation.
-*
-* \param
-*	bin - The BIN value to check.
-*
-* \return
-*	True if valid BIN, false otherwise.
-*
-* \note
-*
-* \code
-*   ...
-*   printf("BIN_IS_VALID(14) = %d\n", BIN_IS_VALID(14));
-*	...
-* \endcode
-*
-*/
-#define BIN_IS_VALID(bin)	((bin >= 0 && bin <= 99)?1:0)
-
-
-/******************************************************************************
-* \brief
-*	Checks if the provided byte is a valid BCD representation.
-*
-* \param
-*	bcd - The BCD value to check.
-*
-* \return
-*	True if valid BCD, false otherwise.
-*
-* \note
-*
-* \code
-*   ...
-*   printf("BCD_IS_VALID(0x14) = %d\n", BCD_IS_VALID(0x14));
-*	...
-* \endcode
-*
-*/
-#define BCD_IS_VALID(bcd)	(((bcd & 0xF0) <= 0x90 && (bcd & 0x0F) <= 0x09)?1:0)
-
-
-/******************************************************************************
-* \brief
 *	Binary number to BCD conversion.
 *
 * \param

@@ -12,6 +12,11 @@
 #include "Bcd.h"
 
 
+#define BIN_IS_VALID(bin)	((bin >= 0 && bin <= 99)?1:0)
+
+#define BCD_IS_VALID(bcd)	(((bcd & 0xF0) <= 0x90 && (bcd & 0x0F) <= 0x09)?1:0)
+
+
 #if defined(__clang__)
 #pragma clang unsafe_buffer_usage begin
 #endif /* defined(__clang__) */
