@@ -317,6 +317,28 @@ INT_MAIN_ARGC_ARGV_BEGIN
     printf("\n");
 }
 
+/* Dec.h */
+{
+    unsigned char pSrcBinArray[5] = { 01, 02, 03 };
+    unsigned char pBinArray[5] = { 0, 0, 0 };
+    unsigned char pDecArray[5] = { 0, 0, 0 };
+
+    printf("Dec test\n");
+
+    printf("BIN_TO_DEC(1)   = '%c'\n", BIN_TO_DEC(1));
+
+    printf("DEC_TO_BIN('9') = %d\n", DEC_TO_BIN('9'));
+
+
+    printf("%d ", ARRAY_BIN_TO_DEC(pDecArray, pSrcBinArray, 3));
+    printf("pDecArray        = %c %c %c\n", pDecArray[0], pDecArray[1], pDecArray[2]);
+    printf("%d ", ARRAY_DEC_TO_BIN(pBinArray, pDecArray, 3));
+    printf("pBinArray        = %02d %02d %02d\n", pBinArray[0], pBinArray[1], pBinArray[2]);
+
+
+    printf("\n");
+}
+
 /* Dump.h */
 {
     unsigned char ucStr[] = "abc";
@@ -485,5 +507,7 @@ INT_MAIN_ARGC_ARGV_END
 
 # History of changes ...
 2025 04 04 ARRAY macros added<br/>
-2025 04 04 BCD macros and functions added
+2025 04 04 BCD macros and functions added<br/>
+2025 04 04 DEC macros and functions added<br/>
+
 
