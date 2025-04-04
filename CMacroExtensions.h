@@ -30,6 +30,7 @@
 #include "DatatypeCpu.h"
 #include "DatatypeWin.h"
 #include "Debug.h"
+#include "Dec.h"
 #include "Deprecated.h"
 #include "Dll.h"
 #include "Dump.h"
