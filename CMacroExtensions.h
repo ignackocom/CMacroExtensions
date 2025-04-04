@@ -4,8 +4,9 @@
 * \author    Peter Potrok
 * \copyright Copyright (c) 1994 - 2025
 *            MIT License (see License.txt file)
-* \brief     Make C89 and C99 and higher more compatible,
-*            C extensions
+* \brief     C Macro Extensions, 
+*            a library collection of commonly used macros in the C language. 
+*            C89, C99 and >C99 compatible.
 *
 * \see       
 *            and other resources
@@ -48,6 +49,8 @@
 #include "Likely.h"
 #include "LogicLevel.h"
 #include "Main.h"
+#include "Math.h"
+#include "MathAngle.h"
 #include "Member.h"
 #include "Null.h"
 #include "Numeric.h"
