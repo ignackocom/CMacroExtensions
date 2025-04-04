@@ -40,6 +40,7 @@
 #include "ExternC.h"
 #include "File.h"
 #include "Func.h"
+#include "Hex.h"
 #include "Include.h"
 #include "Inline.h"
 #include "Iso646c89.h"
