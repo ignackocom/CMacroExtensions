@@ -22,22 +22,22 @@
 #pragma clang unsafe_buffer_usage begin
 #endif /* defined(__clang__) */
 
-int ARRAY_BIN_TO_BCD(unsigned char* pBcdArray, const unsigned char* pBinArray, int iLength)
+int ARRAY_BIN_TO_BCD(unsigned char* pDstBcdArray, const unsigned char* pSrcBinArray, int iLength)
 {
     for (int i = 0; i < iLength; i++)
     {
-        if (!BIN_IS_VALID(pBinArray[i])) return(-1);
-        pBcdArray[i] = (unsigned char)BIN_TO_BCD((unsigned char)pBinArray[i]);
+        if (!BIN_IS_VALID(pSrcBinArray[i])) return(-1);
+        pDstBcdArray[i] = (unsigned char)BIN_TO_BCD((unsigned char)pSrcBinArray[i]);
     }
     return(0);
 }
 
-int ARRAY_BCD_TO_BIN(unsigned char* pBinArray, const unsigned char* pBcdArray, int iLength)
+int ARRAY_BCD_TO_BIN(unsigned char* pDstBinArray, const unsigned char* pSrcBcdArray, int iLength)
 {
     for (int i = 0; i < iLength; i++)
     {
-        if (!BCD_IS_VALID(pBcdArray[i])) return(-1);
-        pBinArray[i] = (unsigned char)BCD_TO_BIN((unsigned char)pBcdArray[i]);
+        if (!BCD_IS_VALID(pSrcBcdArray[i])) return(-1);
+        pDstBinArray[i] = (unsigned char)BCD_TO_BIN((unsigned char)pSrcBcdArray[i]);
     }
     return(0);
 }
