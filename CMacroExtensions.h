@@ -20,6 +20,7 @@
 #include "ArgUsed.h"
 #include "Array.h"
 #include "Assert.h"
+#include "Bcd.h"
 #include "BitsPerType.h"
 #include "Bool.h"
 #include "Cast.h"
