@@ -308,6 +308,17 @@ INT_MAIN_ARGC_ARGV_BEGIN
     printf("\n");
 }
 
+/* Date.h */
+{
+    printf("Date test\n");
+
+    printf("year  %d\n", YEAR(__DATE__, 7));
+    printf("month %d\n", MONTH(__DATE__, 0));
+    printf("day   %d\n", DAY(__DATE__, 4));
+
+    printf("\n");
+}
+
 /* Debug.h */
 {
     printf("Debug test\n");
@@ -513,6 +524,17 @@ INT_MAIN_ARGC_ARGV_BEGIN
     printf("\n");
 }
 
+/* Time.h */
+{
+    printf("Time test\n");
+
+    printf("__HOUR__   = %d\n", HOUR(__TIME__, 0));
+    printf("__MINUTE__ = %d\n", MINUTE(__TIME__, 3));
+    printf("__SECOND__ = %d\n", SECOND(__TIME__, 6));
+
+    printf("\n");
+}
+
 /* Trace.h */
 {
     printf("Trace test\n");
@@ -533,4 +555,5 @@ INT_MAIN_ARGC_ARGV_END
 2025 04 04 BCD macros and functions added<br/>
 2025 04 04 DEC macros and functions added<br/>
 2025 04 04 HEX macros and functions added<br/>
-
+2025 04 04 DATE macros added<br/>
+2025 04 04 TIME macros added<br/>
