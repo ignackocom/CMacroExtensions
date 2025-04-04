@@ -134,6 +134,29 @@ INT_MAIN_ARGC_ARGV_BEGIN
     printf("\n");
 }
 
+/* Bcd.h */
+{
+    unsigned char pSrcBinArray[5] = { 01, 23, 45, 67, 89 };
+    unsigned char pBinArray[5] = { 0, 0, 0, 0, 0 };
+    unsigned char pBcdArray[5] = { 0, 0, 0, 0, 0 };
+
+    printf("Bcd test\n");
+
+    printf("BIN_IS_VALID(14)   = %d\n", BIN_IS_VALID(14));
+    printf("BIN_IS_VALID(100)  = %d\n", BIN_IS_VALID(100));
+    printf("BCD_IS_VALID(0x14) = %d\n", BCD_IS_VALID(0x14));
+    printf("BCD_IS_VALID(0x1F) = %d\n", BCD_IS_VALID(0x1F));
+    printf("BIN_TO_BCD(14)     = 0x%02X\n", (unsigned char)BIN_TO_BCD(14));
+    printf("BCD_TO_BIN(0x14)   = %02d\n", BCD_TO_BIN(0x14));
+
+    printf("%d ", ARRAY_BIN_TO_BCD(pBcdArray, pSrcBinArray, 5));
+    printf("pBcdArray        = %02X %02X %02X %02X %02X\n", pBcdArray[0], pBcdArray[1], pBcdArray[2], pBcdArray[3], pBcdArray[4]);
+    printf("%d ", ARRAY_BCD_TO_BIN(pBinArray, pBcdArray, 5));
+    printf("pBinArray        = %02d %02d %02d %02d %02d\n", pBinArray[0], pBinArray[1], pBinArray[2], pBinArray[3], pBinArray[4]);
+
+    printf("\n");
+}
+
 /* BitsPerType.h */
 {
     printf("BitsPerType test\n");
@@ -466,3 +489,5 @@ INT_MAIN_ARGC_ARGV_END
 
 # History of changes ...
 2025 04 04 ARRAY macros added
+2025 04 04 BCD macros and functions added
+
