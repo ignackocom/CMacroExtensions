@@ -18,6 +18,7 @@
 /* All includes. */
 #include "Align.h"
 #include "ArgUsed.h"
+#include "Array.h"
 #include "Assert.h"
 #include "BitsPerType.h"
 #include "Bool.h"
