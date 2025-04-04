@@ -412,6 +412,29 @@ INT_MAIN_ARGC_ARGV_BEGIN
     printf("\n");
 }
 
+/* Hex.h */
+{
+    unsigned char pSrcBinArray[3] = { 01, 02, 0xf };
+    unsigned char pBinArray[3] = { 0, 0, 0 };
+    unsigned char pHexArray[3] = { 0, 0, 0 };
+
+    printf("Hex test\n");
+
+    printf("BIN_TO_HEX(1)  = '%c'\n", BIN_TO_HEX(1));
+    printf("BIN_TO_HEX(10) = '%c'\n", BIN_TO_HEX(10));
+
+    printf("HEX_TO_BIN('1') = %d\n", HEX_TO_BIN('1'));
+    printf("HEX_TO_BIN('A') = %d\n", HEX_TO_BIN('A'));
+    printf("HEX_TO_BIN('b') = %d\n", HEX_TO_BIN('b'));
+
+    printf("%d ", ARRAY_BIN_TO_HEX(pHexArray, pSrcBinArray, 3));
+    printf("pHexArray        = %c %c %c\n", pHexArray[0], pHexArray[1], pHexArray[2]);
+    printf("%d ", ARRAY_HEX_TO_BIN(pBinArray, pHexArray, 3));
+    printf("pBinArray        = %02d %02d %02d\n", pBinArray[0], pBinArray[1], pBinArray[2]);
+
+    printf("\n");
+}
+
 /* Member.h */
 {
     struct abc { int a; short b; short c; };
@@ -509,5 +532,5 @@ INT_MAIN_ARGC_ARGV_END
 2025 04 04 ARRAY macros added<br/>
 2025 04 04 BCD macros and functions added<br/>
 2025 04 04 DEC macros and functions added<br/>
-
+2025 04 04 HEX macros and functions added<br/>
 
