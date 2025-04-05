@@ -52,6 +52,7 @@
 #include "Math.h"
 #include "MathAngle.h"
 #include "Member.h"
+#include "New.h"
 #include "Null.h"
 #include "Numeric.h"
 #include "Obsolete.h"
