@@ -447,6 +447,79 @@ INT_MAIN_ARGC_ARGV_BEGIN
     printf("\n");
 }
 
+/* Math.h */
+{
+    printf("Math test\n");
+
+    printf("IS_ODD(0)  = %d\n", IS_ODD(0));
+    printf("IS_ODD(1)  = %d\n", IS_ODD(1));
+    printf("IS_ODD(2)  = %d\n", IS_ODD(2));
+    printf("IS_ODD(3)  = %d\n", IS_ODD(3));
+    printf("\n");
+
+    printf("IS_EVEN(0) = %d\n", IS_EVEN(0));
+    printf("IS_EVEN(1) = %d\n", IS_EVEN(1));
+    printf("IS_EVEN(2) = %d\n", IS_EVEN(2));
+    printf("IS_EVEN(3) = %d\n", IS_EVEN(3));
+    printf("\n");
+
+    printf("IS_BETWEEN(1,2,4) = %d\n", IS_BETWEEN(1, 2, 4));
+    printf("IS_BETWEEN(2,2,4) = %d\n", IS_BETWEEN(2, 2, 4));
+    printf("IS_BETWEEN(3,2,4) = %d\n", IS_BETWEEN(3, 2, 4));
+    printf("IS_BETWEEN(4,2,4) = %d\n", IS_BETWEEN(4, 2, 4));
+    printf("IS_BETWEEN(5,2,4) = %d\n", IS_BETWEEN(5, 2, 4));
+    printf("\n");
+
+    printf("CLIP(1,2,4)   = %d\n", CLIP(1, 2, 4));
+    printf("CLIP(2,2,4)   = %d\n", CLIP(2, 2, 4));
+    printf("CLIP(3,2,4)   = %d\n", CLIP(3, 2, 4));
+    printf("CLIP(4,2,4)   = %d\n", CLIP(4, 2, 4));
+    printf("CLIP(5,2,4)   = %d\n", CLIP(5, 2, 4));
+    printf("\n");
+
+    printf("UCLIP(1,4)    = %d\n", UCLIP(1, 4));
+    printf("UCLIP(5,4)    = %d\n", UCLIP(5, 4));
+    printf("\n");
+
+    printf("LCLIP(1,4)    = %d\n", LCLIP(1, 4));
+    printf("LCLIP(5,4)    = %d\n", LCLIP(5, 4));
+    printf("\n");
+
+    printf("SIGN(-2)    = %d\n", SIGN(-2));
+    printf("SIGN(0)     = %d\n", SIGN(0));
+    printf("SIGN(2)     = %d\n", SIGN(2));
+    printf("\n");
+
+    printf("ABS(-2)     = %d\n", ABS(-2));
+    printf("ABS(0)      = %d\n", ABS(0));
+    printf("ABS(2)      = %d\n", ABS(2));
+    printf("\n");
+
+    printf("DIFF(1,5)   = %d\n", DIFF(1, 5));
+    printf("\n");
+
+    printf("MIN(1,2)    = %d\n", MIN(1, 2));
+    printf("MAX(1,2)    = %d\n", MAX(1, 2));
+
+    printf("\n");
+}
+
+/* MathAngle.h */
+{
+    printf("MathAngle test\n");
+
+    printf("DEGREE_TO_RADIAN(57.295780)   = %f\n", DEGREE_TO_RADIAN(57.295780));
+    printf("DEGREE_TO_GRADIAN(57.295780)  = %f\n", DEGREE_TO_GRADIAN(57.295780));
+
+    printf("RADIAN_TO_DEGREE(1)           = %f\n", RADIAN_TO_DEGREE(1));
+    printf("RADIAN_TO_GRADIAN(1)          = %f\n", RADIAN_TO_GRADIAN(1));
+
+    printf("GRADIAN_TO_DEGREE(63.661978)  = %f\n", GRADIAN_TO_DEGREE(63.661978));
+    printf("GRADIAN_TO_RADIAN(63.661978)  = %f\n", GRADIAN_TO_RADIAN(63.661978));
+
+    printf("\n");
+}
+
 /* Member.h */
 {
     struct abc { int a; short b; short c; };
@@ -560,4 +633,5 @@ INT_MAIN_ARGC_ARGV_END
 2025 04 04 TIME macros added<br/>
 2025 04 05 array.h ARRAY_GET_SIZE and ARRAY_GET_ITEM_SIZE macros returns datatype size_t<br/>
 2025 04 05 array.h ARRAY_REVERSE, ARRAY_SORT_ASCENDING, ARRAY_SORT_DESCENDING rewritten to limit some false compiler warnings<br/>
-
+2025 04 05 math.h macros added<br/>
+2025 04 05 mathangle.h macros added<br/>
