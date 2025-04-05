@@ -77,7 +77,7 @@ INT_MAIN_ARGC_ARGV_BEGIN
     printf("Array test\n");
 
     printf("arry                                      = ['%c','%c','%c','%c','%c']\n", arry[0], arry[1], arry[2], arry[3], arry[4]);
-    printf("ARRAY_GET_SIZE(arry)                      = %llu\n", ARRAY_GET_SIZE(arry));
+    printf("ARRAY_GET_SIZE(arry)                      = %zu\n", ARRAY_GET_SIZE(arry));
     printf("ARRAY_GET_ITEM_SIZE(arry)                 = %zu\n", ARRAY_GET_ITEM_SIZE(arry));
     printf("(void*)ARRAY_GET_ITEM_PTR(arry, 0)        = %p\n", (void*)ARRAY_GET_ITEM_PTR(arry, 0));
 
@@ -558,3 +558,6 @@ INT_MAIN_ARGC_ARGV_END
 2025 04 04 HEX macros and functions added<br/>
 2025 04 04 DATE macros added<br/>
 2025 04 04 TIME macros added<br/>
+2025 04 05 array.h ARRAY_GET_SIZE and ARRAY_GET_ITEM_SIZE macros returns datatype size_t<br/>
+2025 04 05 array.h ARRAY_REVERSE, ARRAY_SORT_ASCENDING, ARRAY_SORT_DESCENDING rewritten to limit some false compiler warnings<br/>
+
