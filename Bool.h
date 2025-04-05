@@ -37,7 +37,7 @@
 
 #if !defined(__STDC_VERSION__) || defined(__STDC_VERSION__) && __STDC_VERSION__ < 202311L
 
-/* C18 and lower */
+/* C17 and lower */
 
 typedef enum { FALSE = 0, TRUE = 1, false = 0, true = 1, False = 0, True = 1 } BOOL, bool, Bool;
 

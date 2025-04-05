@@ -7,7 +7,7 @@
 * \brief     Array macros
 * \details
 *
-* \see       
+* \see
 *            and other resources
 ******************************************************************************/
 #ifndef ARRAY_H
@@ -35,7 +35,7 @@
 * \endcode
 *
 */
-#define ARRAY_GET_SIZE(array)           (sizeof(array) / sizeof((array)[0]))
+#define ARRAY_GET_SIZE(array)        ((size_t)(sizeof(array) / sizeof((array)[0])))
 
 
 /******************************************************************************
@@ -59,7 +59,7 @@
 * \endcode
 *
 */
-#define ARRAY_GET_ITEM_SIZE(array)      (sizeof((array)[0]))
+#define ARRAY_GET_ITEM_SIZE(array)      ((size_t)sizeof((array)[0]))
 
 
 /******************************************************************************
@@ -80,7 +80,7 @@
 *   ...
 *   int arry[5] = { 'a','r','r','a','y' };
 *   int *pint;
-* 
+*
 *   pint = ARRAY_GET_ITEM_PTR(arry, 0);
 *   printf("item = %c\n", *pint);
 *   ...
@@ -129,7 +129,7 @@
 *
 * \return
 *	Nothing (void).
-* 
+*
 * \note
 *
 * \code
@@ -159,7 +159,7 @@
 *
 * \return
 *	Nothing (void).
-* 
+*
 * \note
 *
 * \code
@@ -190,7 +190,7 @@
 *
 * \return
 *	Nothing (void).
-* 
+*
 * \note
 *
 * \code
@@ -217,7 +217,7 @@
 *
 * \return
 *   Nothing (void).
-* 
+*
 * \note
 *
 * \code
@@ -236,7 +236,9 @@
         size_t _end_ = (size) - 1; \
         while (_start_ < _end_) { \
             /* Swap (array)[_start_] and (array)[_end_] */ \
-            (array)[_start_] ^= (array)[_end_] ^= (array)[_start_] ^= (array)[_end_]; \
+            (array)[_start_] ^= (array)[_end_]; \
+            (array)[_end_] ^= (array)[_start_]; \
+            (array)[_start_] ^= (array)[_end_]; \
             _start_++; \
             _end_--; \
         } \
@@ -272,7 +274,9 @@
         for (size_t _jdx_ = 0; _jdx_ < (size) - _idx_ - 1; _jdx_++) { \
             if ((array)[_jdx_] > (array)[_jdx_ + 1]) { \
                 /* Swap (array)[_jdx_] and (array)[_jdx_ + 1] */ \
-                (array)[_jdx_] ^= (array)[_jdx_ + 1] ^= (array)[_jdx_] ^= (array)[_jdx_ + 1]; \
+                (array)[_jdx_] ^= (array)[_jdx_ + 1]; \
+                (array)[_jdx_ + 1] ^= (array)[_jdx_]; \
+                (array)[_jdx_] ^= (array)[_jdx_ + 1]; \
             } \
         } \
     } \
@@ -308,7 +312,9 @@
         for (size_t _jdx_ = 0; _jdx_ < (size) - _idx_ - 1; _jdx_++) { \
             if ((array)[_jdx_] < (array)[_jdx_ + 1]) { \
                 /* Swap (array)[_jdx_] and (array)[_jdx_ + 1] */ \
-                (array)[_jdx_] ^= (array)[_jdx_ + 1] ^= (array)[_jdx_] ^= (array)[_jdx_ + 1]; \
+                (array)[_jdx_] ^= (array)[_jdx_ + 1]; \
+                (array)[_jdx_ + 1] ^= (array)[_jdx_]; \
+                (array)[_jdx_] ^= (array)[_jdx_ + 1]; \
             } \
         } \
     } \
