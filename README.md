@@ -541,6 +541,22 @@ INT_MAIN_ARGC_ARGV_BEGIN
     printf("\n");
 }
 
+/* New.h */
+{
+    void* vptr;
+
+    printf("New and Delete test\n");
+
+    vptr = NEW(10);
+    if(vptr != NULL) printf("allocated\n");
+    {
+        DELETE(vptr);
+        printf("deallocated\n");
+    }
+
+    printf("\n");
+}
+
 /* Paste.h */
 {
     printf("Paste test\n");
@@ -635,3 +651,4 @@ INT_MAIN_ARGC_ARGV_END
 2025 04 05 array.h ARRAY_REVERSE, ARRAY_SORT_ASCENDING, ARRAY_SORT_DESCENDING rewritten to limit some false compiler warnings<br/>
 2025 04 05 math.h macros added<br/>
 2025 04 05 mathangle.h macros added<br/>
+2025 04 05 NEW and DELETE macros added in new.h<br/>
