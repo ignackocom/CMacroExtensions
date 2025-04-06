@@ -25,6 +25,8 @@
 #include "BitsPerType.h"
 #include "BitsPrint.h"
 #include "BitsReverse.h"
+#include "BitsRotate.h"
+#include "BitsShift.h"
 #include "Bool.h"
 #include "Cast.h"
 #include "Concatenate.h"
