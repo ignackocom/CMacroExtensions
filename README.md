@@ -169,6 +169,42 @@ INT_MAIN_ARGC_ARGV_BEGIN
     printf("\n");
 }
 
+/* BitsPrint.h */
+{
+    printf("BitsPrint test\n");
+
+    BITS_PRINT_UINT8(0xF1);
+    printf("\n");
+    BITS_PRINT_UINT16(0xFF01);
+    printf("\n");
+    BITS_PRINT_UINT32(0xFFFF0001UL);
+    printf("\n");
+#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L
+    BITS_PRINT_UINT64(0xFFFFFFFF00000001ULL);
+    printf("\n");
+#endif /* defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L */
+
+    printf("\n");
+}
+
+/* BitsReverse.h */
+{
+    printf("BitsReverse test\n");
+
+    BITS_PRINT_UINT8(BITS_REVERSE_UINT8(0xF1));
+    printf("\n");
+    BITS_PRINT_UINT16(BITS_REVERSE_UINT16(0xFF01));
+    printf("\n");
+    BITS_PRINT_UINT32(BITS_REVERSE_UINT32(0xFFFF0001UL));
+    printf("\n");
+#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L
+    BITS_PRINT_UINT64(BITS_REVERSE_UINT64(0xFFFFFFFF00000001ULL));
+    printf("\n");
+#endif /* defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L */
+
+    printf("\n");
+}
+
 /* Bool.h */
 {
     printf("Bool test\n");
@@ -652,3 +688,5 @@ INT_MAIN_ARGC_ARGV_END
 2025 04 05 math.h macros added<br/>
 2025 04 05 mathangle.h macros added<br/>
 2025 04 05 NEW and DELETE macros added in new.h<br/>
+2025 04 06 BITS PRINT functions added in BitsPrint.h<br/>
+2025 04 06 BITS REVERSE functions added in BitsReverse.h<br/>
