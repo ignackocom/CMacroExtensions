@@ -23,6 +23,8 @@
 #include "Assert.h"
 #include "Bcd.h"
 #include "BitsPerType.h"
+#include "BitsPrint.h"
+#include "BitsReverse.h"
 #include "Bool.h"
 #include "Cast.h"
 #include "Concatenate.h"
