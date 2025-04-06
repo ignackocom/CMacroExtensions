@@ -205,6 +205,182 @@ INT_MAIN_ARGC_ARGV_BEGIN
     printf("\n");
 }
 
+/* BitsRotate.h */
+{
+    UINT8               byte;
+    UINT16              word;
+    UINT32              dword;
+#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus >= 201103L
+    UINT64              qword;
+#endif /* defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus >= 201103L */
+
+    printf("BitsRotate test\n");
+
+    byte = 0x0F;
+
+    printf("byte                   = ");
+    BITS_PRINT_UINT8(byte);
+    printf("\n");
+
+    printf("ROTATE_LEFT(byte, 2)   = ");
+    byte = (unsigned char)ROTATE_LEFT(byte, 2);
+    BITS_PRINT_UINT8(byte);
+    printf("\n");
+
+    printf("ROTATE_RIGHT(byte, 4)  = ");
+    byte = (unsigned char)ROTATE_RIGHT(byte, 4);
+    BITS_PRINT_UINT8(byte);
+    printf("\n");
+
+    printf("\n");
+
+    word = 0x0F0F;
+
+    printf("word                   = ");
+    BITS_PRINT_UINT16(word);
+    printf("\n");
+
+    printf("ROTATE_LEFT(word, 2)   = ");
+    word = (unsigned short)ROTATE_LEFT(word, 2);
+    BITS_PRINT_UINT16(word);
+    printf("\n");
+
+    printf("ROTATE_RIGHT(word, 4)  = ");
+    word = (unsigned short)ROTATE_RIGHT(word, 4);
+    BITS_PRINT_UINT16(word);
+    printf("\n");
+
+    printf("\n");
+
+    dword = 0x0F0F0F0FUL;
+
+    printf("dword                  = ");
+    BITS_PRINT_UINT32(dword);
+    printf("\n");
+
+    printf("ROTATE_LEFT(dword, 2)  = ");
+    dword = (unsigned long)ROTATE_LEFT(dword, 2);
+    BITS_PRINT_UINT32(dword);
+    printf("\n");
+
+    printf("ROTATE_RIGHT(dword, 4) = ");
+    dword = (unsigned long)ROTATE_RIGHT(dword, 4);
+    BITS_PRINT_UINT32(dword);
+    printf("\n");
+
+    printf("\n");
+
+#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus >= 201103L
+
+    qword = 0x0F0F0F0F0F0F0F0FULL;
+
+    printf("qword                  = ");
+    BITS_PRINT_UINT64(qword);
+    printf("\n");
+
+    printf("ROTATE_LEFT(qword, 2)  = ");
+    qword = (unsigned long long)ROTATE_LEFT(qword, 2);
+    BITS_PRINT_UINT64(qword);
+    printf("\n");
+
+    printf("ROTATE_RIGHT(qword, 4) = ");
+    qword = (unsigned long long)ROTATE_RIGHT(qword, 4);
+    BITS_PRINT_UINT64(qword);
+    printf("\n");
+
+#endif /* defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus >= 201103L */
+
+    printf("\n");
+}
+
+/* BitsShift.h */
+{
+    UINT8               byte;
+    UINT16              word;
+    UINT32              dword;
+#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus >= 201103L
+    UINT64              qword;
+#endif /* defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus >= 201103L */
+
+    printf("BitsShift test\n");
+
+    byte = 0x0F;
+
+    printf("byte                   = ");
+    BITS_PRINT_UINT8(byte);
+    printf("\n");
+
+    printf("SHIFT_LEFT(byte, 2)    = ");
+    byte = (unsigned char)SHIFT_LEFT(byte, 2);
+    BITS_PRINT_UINT8(byte);
+    printf("\n");
+
+    printf("SHIFT_RIGHT(byte, 4)   = ");
+    byte = (unsigned char)SHIFT_RIGHT(byte, 4);
+    BITS_PRINT_UINT8(byte);
+    printf("\n");
+
+    printf("\n");
+
+    word = 0x0F0F;
+
+    printf("word                   = ");
+    BITS_PRINT_UINT16(word);
+    printf("\n");
+
+    printf("SHIFT_LEFT(word, 2)    = ");
+    word = (unsigned short)SHIFT_LEFT(word, 2);
+    BITS_PRINT_UINT16(word);
+    printf("\n");
+
+    printf("SHIFT_RIGHT(word, 4)   = ");
+    word = (unsigned short)SHIFT_RIGHT(word, 4);
+    BITS_PRINT_UINT16(word);
+    printf("\n");
+
+    printf("\n");
+
+    dword = 0x0F0F0F0FUL;
+
+    printf("dword                  = ");
+    BITS_PRINT_UINT32(dword);
+    printf("\n");
+
+    printf("SHIFT_LEFT(dword, 2)   = ");
+    dword = (unsigned long)SHIFT_LEFT(dword, 2);
+    BITS_PRINT_UINT32(dword);
+    printf("\n");
+
+    printf("SHIFT_RIGHT(dword, 4)  = ");
+    dword = (unsigned long)SHIFT_RIGHT(dword, 4);
+    BITS_PRINT_UINT32(dword);
+    printf("\n");
+
+    printf("\n");
+
+#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus >= 201103L
+
+    qword = 0x0F0F0F0F0F0F0F0FULL;
+
+    printf("qword                  = ");
+    BITS_PRINT_UINT64(qword);
+    printf("\n");
+
+    printf("SHIFT_LEFT(qword, 2)   = ");
+    qword = (unsigned long long)SHIFT_LEFT(qword, 2);
+    BITS_PRINT_UINT64(qword);
+    printf("\n");
+
+    printf("SHIFT_RIGHT(qword, 4)  = ");
+    qword = (unsigned long long)SHIFT_RIGHT(qword, 4);
+    BITS_PRINT_UINT64(qword);
+    printf("\n");
+
+#endif /* defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus >= 201103L */
+
+    printf("\n");
+}
+
 /* Bool.h */
 {
     printf("Bool test\n");
@@ -690,3 +866,5 @@ INT_MAIN_ARGC_ARGV_END
 2025 04 05 NEW and DELETE macros added in new.h<br/>
 2025 04 06 BITS PRINT functions added in BitsPrint.h<br/>
 2025 04 06 BITS REVERSE functions added in BitsReverse.h<br/>
+2025 04 06 BITS ROTATE macros added in BitsRotate.h<br/>
+2025 04 06 BITS SHIFT macros added in BitsShift.h<br/>
