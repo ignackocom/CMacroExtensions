@@ -1,6 +1,5 @@
 /******************************************************************************
 * \file      Concatenate.h
-* \version   2025.03.18.01
 * \author    Peter Potrok
 * \copyright Copyright (c) 1994 - 2025
 *            MIT License (see License.txt file)
@@ -15,7 +14,7 @@
 #define CONCATENATE_H		20250318L
 
 
-#define CONCATENATE__(t1, t2)			t1##t2
+#define CONCATENATE_(t1, t2)			t1##t2
 
 /******************************************************************************
 * \brief
@@ -38,7 +37,7 @@
 * \endcode
 *
 */
-#define CONCATENATE(t1, t2)			CONCATENATE__(t1, t2)
+#define CONCATENATE(t1, t2)			CONCATENATE_(t1, t2)
 
 
 #endif /* CONCATENATE_H */

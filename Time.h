@@ -1,13 +1,12 @@
 /******************************************************************************
-* @file      Time.h
-* \version   2025.03.18.01
-* @author    Peter Potrok
-* @copyright Copyright (c) 1994 - 2025
+* \file      Time.h
+* \author    Peter Potrok
+* \copyright Copyright (c) 1994 - 2025
 *            MIT License (see License.txt file)
-* @brief     Time macros
-* @details
+* \brief     Time macros
+* \details
 *
-* @see       
+* \see       
 *            and other resources
 *****************************************************************************/
 #ifndef TIME_H

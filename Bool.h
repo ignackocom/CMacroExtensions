@@ -1,6 +1,5 @@
 /******************************************************************************
 * \file      Bool.h
-* \version   2025.03.18.01
 * \author    Peter Potrok
 * \copyright Copyright (c) 1994 - 2025
 *            MIT License (see License.txt file)
@@ -17,38 +16,45 @@
 
 #undef BOOL
 #undef Bool
-#if !defined(__STDC_VERSION__) || defined(__STDC_VERSION__) && __STDC_VERSION__ < 202311L
-#undef bool
-#endif
 
 #undef TRUE
 #undef True
-#if !defined(__STDC_VERSION__) || defined(__STDC_VERSION__) && __STDC_VERSION__ < 202311L
-#undef true
-#endif
 
 #undef FALSE
 #undef False
-#if !defined(__STDC_VERSION__) || defined(__STDC_VERSION__) && __STDC_VERSION__ < 202311L
-#undef false
-#endif
 
 
+#if !defined(__cplusplus)
 
-#if !defined(__STDC_VERSION__) || defined(__STDC_VERSION__) && __STDC_VERSION__ < 202311L
+	#if !defined(__STDC_VERSION__)
 
-/* C17 and lower */
+		/* C89 */
 
-typedef enum { FALSE = 0, TRUE = 1, false = 0, true = 1, False = 0, True = 1 } BOOL, bool, Bool;
+		typedef enum { FALSE = 0, TRUE = 1, false = 0, true = 1, False = 0, True = 1 } BOOL, bool, Bool;
 
-#else /* !defined(__STDC_VERSION__) || defined(__STDC_VERSION__) && __STDC_VERSION__ < 202311L */
+	#elif defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L && __STDC_VERSION__ < 202311L
 
-/* C23 and higher */
+		/* C99 - C17 */
 
-typedef enum { FALSE = 0, TRUE = 1, False = 0, True = 1 } BOOL, Bool;
+		#include <stdbool.h>
 
-#endif /* !defined(__STDC_VERSION__) || defined(__STDC_VERSION__) && __STDC_VERSION__ < 202311L */
+		typedef enum { FALSE = false, TRUE = true, False = false, True = true } BOOL, Bool;
 
+	#else
+
+		/* C23 and higher */
+
+		typedef enum { FALSE = false, TRUE = true, False = false, True = true } BOOL, Bool;
+
+	#endif /* !defined(__STDC_VERSION__) || defined(__STDC_VERSION__) && __STDC_VERSION__ < 202311L */
+
+#else /* !defined(__cplusplus) */
+
+	/* C++ */
+
+	typedef enum { FALSE = false, TRUE = true, False = false, True = true } BOOL, Bool;
+
+#endif /* !defined(__cplusplus) */
 
 
 #define TRUE_NAME			"true"

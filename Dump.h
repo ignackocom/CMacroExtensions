@@ -1,6 +1,5 @@
 /******************************************************************************
 * \file      Dump.h
-* \version   2025.03.18.01
 * \author    Peter Potrok
 * \copyright Copyright (c) 1994 - 2025
 *            MIT License (see License.txt file)
@@ -21,12 +20,12 @@
 #define PRINT_VARIABLE_L(var)		printf("%s = %ld\n",#var,(var))
 #define PRINT_VARIABLE_UL(var)		printf("%s = %lu\n",#var,(var))
 
-#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L 
+#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus > 199711L
 
 #define PRINT_VARIABLE_LL(var)		printf("%s = %lld\n",#var,(var))
 #define PRINT_VARIABLE_ULL(var)		printf("%s = %llu\n",#var,(var))
 
-#endif
+#endif /* defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus > 199711L */
 
 #define PRINT_VARIABLE_SIZE_T(var)	printf("%s = %zu\n",#var,(var))
 

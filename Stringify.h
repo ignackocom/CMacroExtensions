@@ -1,6 +1,5 @@
 /******************************************************************************
 * \file      Stringify.h
-* \version   2025.03.18.01
 * \author    Peter Potrok
 * \copyright Copyright (c) 1994 - 2025
 *            MIT License (see License.txt file)
@@ -15,9 +14,9 @@
 #define STRINGIFY_H		20250318L
 
 
-#define STRINGIFY__(x)    #x
+#define STRINGIFY_(x)    #x
 
-#define STRINGIFY(x)      STRINGIFY__(x)
+#define STRINGIFY(x)      STRINGIFY_(x)
 
 
 #endif /* STRINGIFY_H */

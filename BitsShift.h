@@ -1,6 +1,5 @@
 /******************************************************************************
 * \file      BitsShift.h
-* \version   2025.03.18.01
 * \author    Peter Potrok
 * \copyright Copyright (c) 1994 - 2025
 *            MIT License (see License.txt file)
@@ -11,7 +10,7 @@
 *            and other resources
 ******************************************************************************/
 #ifndef BITSSHIFT_H
-#define BITSSHIFT_H		198901L
+#define BITSSHIFT_H		20250318L
 
 
 /******************************************************************************

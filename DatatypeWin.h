@@ -1,6 +1,5 @@
 /******************************************************************************
 * \file      DatatypeWin.h
-* \version   2025.03.18.01
 * \author    Peter Potrok
 * \copyright Copyright (c) 1994 - 2025
 *            MIT License (see License.txt file)
@@ -15,78 +14,105 @@
 #define DATATYPEWIN_H		20250318L
 
 
-#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L 
-/* since C99 */
-#include <stdint.h> 
-#endif /*  defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L */
-
-
 /******************************************************************************
 **  win basic data types
 */
-#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L 
+#if !defined(__cplusplus)
 
-/* since C99 */
+	#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L
 
-typedef  uint8_t				BYTE;
+		/* since C99 */
+		#include <stdint.h>
 
-typedef  uint16_t				WORD;
+		typedef  uint8_t				BYTE;
 
-typedef  uint32_t				DWORD;
+		typedef  uint16_t				WORD;
 
-typedef  uint64_t				QWORD;
+		typedef  uint32_t				DWORD;
 
-#else /*  defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L */
+		typedef  uint64_t				QWORD;
 
-/* C95 and less */
+	#else /*  defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L */
 
-typedef  unsigned char			BYTE;
+		/* C95 and less */
 
-typedef  unsigned short			WORD;
+		typedef  unsigned char			BYTE;
 
-typedef  unsigned long			DWORD;
+		typedef  unsigned short			WORD;
 
-#endif /*  defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L */
+		typedef  unsigned long			DWORD;
+
+	#endif /*  defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L */
+
+#else /* !defined(__cplusplus) */
+
+	#if __cplusplus > 199711L
+
+        /* since CPP11 */
+
+        #include <cstdint>
+
+        typedef  std::uint8_t				BYTE;
+
+        typedef  std::uint16_t				WORD;
+
+        typedef  std::uint32_t				DWORD;
+
+		typedef  std::uint64_t				QWORD;
+
+    #else
+
+        /* CPP98 */
+
+		typedef  unsigned char			BYTE;
+
+		typedef  unsigned short			WORD;
+
+		typedef  unsigned long			DWORD;
+
+	#endif /* __cplusplus > 199711L */
+
+#endif
 
 
 /******************************************************************************
 **  win data types basic operations get
 */
-#define LONIBBLE(byte)			((byte) & 0x0F)
+#define LONIBBLE(byte)			((BYTE)((byte) & 0x0F))
 
-#define HINIBBLE(byte)			(((byte) & 0xF0) >> 4)
+#define HINIBBLE(byte)			((BYTE)(((byte) & 0xF0) >> 4))
 
-#define LOBYTE(word)			((word) & 0x00FF)
+#define LOBYTE(word)			((BYTE)((word) & 0x00FF))
 
-#define HIBYTE(word)			(((word) & 0xFF00) >> 8)
+#define HIBYTE(word)			((BYTE)(((word) & 0xFF00) >> 8))
 
-#define LOWORD(dword)			((dword) & 0x0000FFFFUL)
+#define LOWORD(dword)			((WORD)((dword) & (DWORD)0x0000FFFF))
 
-#define HIWORD(dword)			(((dword) & 0xFFFF0000UL) >> 16)
+#define HIWORD(dword)			((WORD)(((dword) & (DWORD)0xFFFF0000) >> 16))
 
-#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L 
+#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus > 199711L
 
-#define LODWORD(qword)			((DWORD)((qword) & 0x00000000FFFFFFFFULL))
+#define LODWORD(qword)			((DWORD)((qword) & (QWORD)0x00000000FFFFFFFF))
 
-#define HIDWORD(qword)			((DWORD)(((qword) & 0xFFFFFFFF00000000ULL) >> 32))
+#define HIDWORD(qword)			((DWORD)(((qword) & (QWORD)0xFFFFFFFF00000000) >> 32))
 
-#endif /*  defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L */
+#endif /*  defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus > 199711L */
 
 
 /******************************************************************************
 **  win data types basic operations make
 */
-#define MAKEBYTE(high,low)		(((high) << 4) | (low))
+#define MAKEBYTE(high,low)		((BYTE)((((BYTE)high) << 4) | (low)))
 
-#define MAKEWORD(high,low)		(((high) << 8 ) | (low))
+#define MAKEWORD(high,low)		((WORD)((((WORD)high) << 8 ) | (low)))
 
-#define MAKEDWORD(high,low)		(((high) << 16 ) | (low))
+#define MAKEDWORD(high,low)		((DWORD)((((DWORD)high) << 16 ) | (low)))
 
-#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L 
+#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus > 199711L
 
-#define MAKEQWORD(high,low)		(((high) << 32 ) | (low))
+#define MAKEQWORD(high,low)		((QWORD)((((QWORD)high) << 32 ) | (low)))
 
-#endif /*  defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L */
+#endif /*  defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus > 199711L */
 
 
 #endif /* DATATYPEWIN_H */

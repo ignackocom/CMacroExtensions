@@ -1,6 +1,5 @@
 /******************************************************************************
 * \file      BitsPrint.h
-* \version   2025.03.18.01
 * \author    Peter Potrok
 * \copyright Copyright (c) 1994 - 2025
 *            MIT License (see License.txt file)
@@ -72,7 +71,7 @@ extern "C" {
     */
     void BITS_PRINT_UINT32(UINT32 value);
 
-#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L
+#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus > 199711L
 
     /******************************************************************************
     * \brief
@@ -91,7 +90,7 @@ extern "C" {
     */
     void BITS_PRINT_UINT64(UINT64 value);
 
-#endif /* defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L */
+#endif /* defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus > 199711L */
 
 
 #ifdef __cplusplus

@@ -1,6 +1,5 @@
 /******************************************************************************
 * \file      BitsPrint.c
-* \version   2025.03.18.01
 * \author    Peter Potrok
 * \copyright Copyright (c) 1994 - 2025
 *            MIT License (see License.txt file)
@@ -13,6 +12,10 @@
 #include <limits.h>
 #include <stdio.h>
 
+#if defined(__clang__)
+#pragma clang diagnostic ignored "-Wold-style-cast"
+#endif /* defined(__clang__) */
+
 #include "BitsPrint.h"
 
 
@@ -20,7 +23,7 @@ void BITS_PRINT_UINT8(UINT8 value)
 {
     size_t bits;
     bits = sizeof(value) * CHAR_BIT;
-    while (bits--) putchar((value) & (1U << bits) ? '1' : '0');
+    while (bits--) putchar((value) & (((UINT8)1) << bits) ? '1' : '0');
     return;
 }
 
@@ -28,7 +31,7 @@ void BITS_PRINT_UINT16(UINT16 value)
 {
     size_t bits;
     bits = sizeof(value) * CHAR_BIT;
-    while (bits--) putchar((value) & (1U << bits) ? '1' : '0');
+    while (bits--) putchar((value) & (((UINT16)1) << bits) ? '1' : '0');
     return;
 }
 
@@ -36,18 +39,18 @@ void BITS_PRINT_UINT32(UINT32 value)
 {
     size_t bits;
     bits = sizeof(value) * CHAR_BIT;
-    while (bits--) putchar((value) & (1UL << bits) ? '1' : '0');
+    while (bits--) putchar((value) & (((UINT32)1) << bits) ? '1' : '0');
     return;
 }
 
-#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L
+#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus)
 
 void BITS_PRINT_UINT64(UINT64 value)
 {
     size_t bits;
     bits = sizeof(value) * CHAR_BIT;
-    while (bits--) putchar((value) & (1ULL << bits) ? '1' : '0');
+    while (bits--) putchar((value) & (((UINT64)1) << bits) ? '1' : '0');
     return;
 }
 
-#endif /* defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L */
+#endif /* defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) */

@@ -1,6 +1,5 @@
 /******************************************************************************
 * \file      Func.h
-* \version   2025.03.18.01
 * \author    Peter Potrok
 * \copyright Copyright (c) 1994 - 2025
 *            MIT License (see License.txt file)
@@ -16,15 +15,15 @@
 
 
 /* function name definition */
-#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L 
-#define func__(n)			((void)0)
+#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus)
+#define func_(n)			((void)0)
 #else
-#define func__(n)			const char __func__[] = (n)
+#define func_(n)			const char __func__[] = (n)
 #endif
 
 
 /* function name macro */
-#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L 
+#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) 
 #define FUNC_NAME(n)		__func__
 #else
 #define FUNC_NAME(n)		(n)

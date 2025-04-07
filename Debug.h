@@ -1,6 +1,5 @@
 /******************************************************************************
 * \file      Debug.h
-* \version   2025.03.18.01
 * \author    Peter Potrok
 * \copyright Copyright (c) 1994 - 2025
 *            MIT License (see License.txt file)
@@ -47,7 +46,7 @@
         *
         */
         #define DEBUG_MESSAGE(message) \
-            fprintf(stderr, "[DEBUG] %s:%ld, %s\n", __FILE__, __LINE__, (message))
+            fprintf(stderr, "[DEBUG] %s:%ld, %s\n", __FILE__, (long)__LINE__, (message))
 
     #endif /* defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L */
 

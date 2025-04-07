@@ -1,6 +1,5 @@
 /******************************************************************************
 * \file      Datatype.h
-* \version   2025.03.18.01
 * \author    Peter Potrok
 * \copyright Copyright (c) 1994 - 2025
 *            MIT License (see License.txt file)
@@ -15,11 +14,10 @@
 #define LANGUAGEDATATYPE_H		20250318L
 
 
-#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L 
-/* since C99 */
-#include <stdint.h> 
-#endif /*  defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L */
-
+#if defined(__cplusplus) && __cplusplus > 199711L
+/* C++ */
+#include <cstdint>
+#endif
 
 
 /******************************************************************************
@@ -41,12 +39,25 @@ typedef unsigned int        UInt;
 typedef long                Long;
 typedef unsigned long       ULong;
 
-#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L 
+#if !defined(__cplusplus)
 
-typedef long long           LongLong;
-typedef unsigned long long  ULongLong;
+    #if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L
 
-#endif /*  defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L */
+        typedef long long           LongLong;
+        typedef unsigned long long  ULongLong;
+
+    #endif /*  defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L */
+
+#else /* !defined(__cplusplus) */
+
+    #if __cplusplus > 199711L
+
+        typedef std::int64_t            LongLong;
+        typedef std::uint64_t           ULongLong;
+
+    #endif /* __cplusplus > 199711L */
+
+#endif /* !defined(__cplusplus) */
 
 typedef     float           Float;
 
@@ -72,12 +83,12 @@ typedef UInt                UINT;
 typedef Long                LONG;
 typedef ULong               ULONG;
 
-#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L 
+#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus > 199711L
 
 typedef LongLong            LONGLONG;
 typedef ULongLong           ULONGLONG;
 
-#endif /*  defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L */
+#endif /*  defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus > 199711L */
 
 typedef     Float           FLOAT;
 
@@ -90,36 +101,74 @@ typedef     LongDouble      LONGDOUBLE;
 /******************************************************************************
 **  basic integer types
 */
-#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L 
+#if !defined(__cplusplus)
 
-    /* since C99 */
+    #if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L
 
-    typedef  int8_t         Int8;
-    typedef  uint8_t        UInt8;
+        /* since C99 */
+        #include <stdint.h>
 
-    typedef  int16_t        Int16;
-    typedef  uint16_t       UInt16;
+        typedef  int8_t         Int8;
+        typedef  uint8_t        UInt8;
 
-    typedef  int32_t        Int32;
-    typedef  uint32_t       UInt32;
+        typedef  int16_t        Int16;
+        typedef  uint16_t       UInt16;
 
-    typedef  int64_t        Int64;
-    typedef  uint64_t       UInt64;
+        typedef  int32_t        Int32;
+        typedef  uint32_t       UInt32;
 
-#else /*  defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L */
+        typedef  int64_t        Int64;
+        typedef  uint64_t       UInt64;
 
-    /* C95 and less */
+    #else /*  defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L */
 
-    typedef  char           Int8;
-    typedef  unsigned char  UInt8;
+        /* C95 and less */
 
-    typedef  short          Int16;
-    typedef  unsigned short UInt16;
+        typedef  char           Int8;
+        typedef  unsigned char  UInt8;
 
-    typedef  long           Int32;
-    typedef  unsigned long  UInt32;
+        typedef  short          Int16;
+        typedef  unsigned short UInt16;
 
-#endif /*  defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L */
+        typedef  long           Int32;
+        typedef  unsigned long  UInt32;
+
+    #endif /*  defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L */
+
+#else /* !defined(__cplusplus) */
+
+    #if __cplusplus > 199711L
+
+        /* since CPP11 */
+
+        typedef  std::int8_t         Int8;
+        typedef  std::uint8_t        UInt8;
+
+        typedef  std::int16_t        Int16;
+        typedef  std::uint16_t       UInt16;
+
+        typedef  std::int32_t        Int32;
+        typedef  std::uint32_t       UInt32;
+
+        typedef  std::int64_t        Int64;
+        typedef  std::uint64_t       UInt64;
+
+    #else
+
+        /* CPP98 */
+
+        typedef  char           Int8;
+        typedef  unsigned char  UInt8;
+
+        typedef  short          Int16;
+        typedef  unsigned short UInt16;
+
+        typedef  long           Int32;
+        typedef  unsigned long  UInt32;
+
+    #endif /* __cplusplus > 199711L */
+
+#endif /* !defined(__cplusplus) */
 
 
 
@@ -132,12 +181,12 @@ typedef     UInt16          UINT16;
 typedef     Int32           INT32;
 typedef     UInt32          UINT32;
 
-#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L 
+#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus > 199711L
 
 typedef     Int64           INT64;
 typedef     UInt64          UINT64;
 
-#endif /*  defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L */
+#endif /*  defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus > 199711L */
 
 
 
@@ -150,12 +199,12 @@ typedef     UInt16          UI16;
 typedef     Int32           I32;
 typedef     UInt32          UI32;
 
-#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L 
+#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus > 199711L
 
 typedef     Int64           I64;
 typedef     UInt64          UI64;
 
-#endif /*  defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L */
+#endif /*  defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus > 199711L */
 
 
 
