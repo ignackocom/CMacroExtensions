@@ -9,8 +9,21 @@ Example of use
 #include <stdarg.h>
 
 #if defined(__clang__)
-#pragma clang diagnostic ignored "-Wc23-compat"
+#pragma clang diagnostic ignored "-Wc++98-compat-pedantic"
 #endif /* defined(__clang__) */
+
+#if defined(__clang__)
+#pragma clang diagnostic ignored "-Wdate-time"
+#endif /* defined(__clang__) */
+
+#if defined(__clang__)
+#pragma clang diagnostic ignored "-Wold-style-cast"
+#endif /* defined(__clang__) */
+
+#if defined(__clang__)
+#pragma clang diagnostic ignored "-Wzero-as-null-pointer-constant"
+#endif /* defined(__clang__) */
+
 
 #ifdef _MSC_VER
 #pragma warning(disable:4464)
@@ -33,6 +46,12 @@ INT_MAIN_ARGC_ARGV_BEGIN
 #if defined(__cplusplus)
     printf("__cplusplus       %ld\n", __cplusplus);
 #endif /* defined(__cplusplus) */
+    printf("\n");
+}
+
+/* CMacroExtensions.h */
+{
+    printf("CMACROEXTENSIONS_VERSION = %ld\n", CMACROEXTENSIONS_VERSION());
     printf("\n");
 }
 
@@ -131,6 +150,7 @@ INT_MAIN_ARGC_ARGV_BEGIN
 
     i = 2;
     ASSERT_MESSAGE(2 == i, "custom error message!");
+    i+=2;
 
     printf("\n");
 }
@@ -158,13 +178,13 @@ INT_MAIN_ARGC_ARGV_BEGIN
 {
     printf("BitsPerType test\n");
 
-    printf("char      Bits %zu\n", BITS_PER_TYPE(char));
-    printf("short     Bits %zu\n", BITS_PER_TYPE(short));
+    printf("char      Bits %zu\n", BITS_PER_TYPE(UINT8));
+    printf("short     Bits %zu\n", BITS_PER_TYPE(UINT16));
     printf("int       Bits %zu\n", BITS_PER_TYPE(int));
-    printf("long      Bits %zu\n", BITS_PER_TYPE(long));
-#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus >= 201103L
-    printf("long long Bits %zu\n", BITS_PER_TYPE(long long));
-#endif /* defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus >= 201103L */
+    printf("long      Bits %zu\n", BITS_PER_TYPE(UINT32));
+#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus > 199711L
+    printf("long long Bits %zu\n", BITS_PER_TYPE(UINT64));
+#endif /* defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus > 199711L */
 
     printf("\n");
 }
@@ -173,16 +193,16 @@ INT_MAIN_ARGC_ARGV_BEGIN
 {
     printf("BitsPrint test\n");
 
-    BITS_PRINT_UINT8(0xF1);
+    BITS_PRINT_UINT8((UINT8)0xF1);
     printf("\n");
-    BITS_PRINT_UINT16(0xFF01);
+    BITS_PRINT_UINT16((UINT16)0xFF01);
     printf("\n");
-    BITS_PRINT_UINT32(0xFFFF0001UL);
+    BITS_PRINT_UINT32((UINT32)0xFFFF0001);
     printf("\n");
-#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L
-    BITS_PRINT_UINT64(0xFFFFFFFF00000001ULL);
+#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus > 199711L
+    BITS_PRINT_UINT64((UINT64)0xFFFFFFFF00000001);
     printf("\n");
-#endif /* defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L */
+#endif /* defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus > 199711L */
 
     printf("\n");
 }
@@ -191,16 +211,16 @@ INT_MAIN_ARGC_ARGV_BEGIN
 {
     printf("BitsReverse test\n");
 
-    BITS_PRINT_UINT8(BITS_REVERSE_UINT8(0xF1));
+    BITS_PRINT_UINT8(BITS_REVERSE_UINT8((UINT8)0xF1));
     printf("\n");
-    BITS_PRINT_UINT16(BITS_REVERSE_UINT16(0xFF01));
+    BITS_PRINT_UINT16(BITS_REVERSE_UINT16((UINT16)0xFF01));
     printf("\n");
-    BITS_PRINT_UINT32(BITS_REVERSE_UINT32(0xFFFF0001UL));
+    BITS_PRINT_UINT32(BITS_REVERSE_UINT32((UINT32)0xFFFF0001));
     printf("\n");
-#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L
-    BITS_PRINT_UINT64(BITS_REVERSE_UINT64(0xFFFFFFFF00000001ULL));
+#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus > 199711L
+    BITS_PRINT_UINT64(BITS_REVERSE_UINT64((UINT64)0xFFFFFFFF00000001));
     printf("\n");
-#endif /* defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L */
+#endif /* defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus > 199711L */
 
     printf("\n");
 }
@@ -210,9 +230,9 @@ INT_MAIN_ARGC_ARGV_BEGIN
     UINT8               byte;
     UINT16              word;
     UINT32              dword;
-#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus >= 201103L
+#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus > 199711L
     UINT64              qword;
-#endif /* defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus >= 201103L */
+#endif /* defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus > 199711L */
 
     printf("BitsRotate test\n");
 
@@ -223,12 +243,12 @@ INT_MAIN_ARGC_ARGV_BEGIN
     printf("\n");
 
     printf("ROTATE_LEFT(byte, 2)   = ");
-    byte = (unsigned char)ROTATE_LEFT(byte, 2);
+    byte = (UINT8)ROTATE_LEFT(byte, 2);
     BITS_PRINT_UINT8(byte);
     printf("\n");
 
     printf("ROTATE_RIGHT(byte, 4)  = ");
-    byte = (unsigned char)ROTATE_RIGHT(byte, 4);
+    byte = (UINT8)ROTATE_RIGHT(byte, 4);
     BITS_PRINT_UINT8(byte);
     printf("\n");
 
@@ -241,12 +261,12 @@ INT_MAIN_ARGC_ARGV_BEGIN
     printf("\n");
 
     printf("ROTATE_LEFT(word, 2)   = ");
-    word = (unsigned short)ROTATE_LEFT(word, 2);
+    word = (UINT16)ROTATE_LEFT(word, 2);
     BITS_PRINT_UINT16(word);
     printf("\n");
 
     printf("ROTATE_RIGHT(word, 4)  = ");
-    word = (unsigned short)ROTATE_RIGHT(word, 4);
+    word = (UINT16)ROTATE_RIGHT(word, 4);
     BITS_PRINT_UINT16(word);
     printf("\n");
 
@@ -259,36 +279,36 @@ INT_MAIN_ARGC_ARGV_BEGIN
     printf("\n");
 
     printf("ROTATE_LEFT(dword, 2)  = ");
-    dword = (unsigned long)ROTATE_LEFT(dword, 2);
+    dword = (UINT32)ROTATE_LEFT(dword, 2);
     BITS_PRINT_UINT32(dword);
     printf("\n");
 
     printf("ROTATE_RIGHT(dword, 4) = ");
-    dword = (unsigned long)ROTATE_RIGHT(dword, 4);
+    dword = (UINT32)ROTATE_RIGHT(dword, 4);
     BITS_PRINT_UINT32(dword);
     printf("\n");
 
     printf("\n");
 
-#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus >= 201103L
+#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus > 199711L
 
-    qword = 0x0F0F0F0F0F0F0F0FULL;
+    qword = (UINT64)0x0F0F0F0F0F0F0F0F;
 
     printf("qword                  = ");
     BITS_PRINT_UINT64(qword);
     printf("\n");
 
     printf("ROTATE_LEFT(qword, 2)  = ");
-    qword = (unsigned long long)ROTATE_LEFT(qword, 2);
+    qword = (UINT64)ROTATE_LEFT(qword, 2);
     BITS_PRINT_UINT64(qword);
     printf("\n");
 
     printf("ROTATE_RIGHT(qword, 4) = ");
-    qword = (unsigned long long)ROTATE_RIGHT(qword, 4);
+    qword = (UINT64)ROTATE_RIGHT(qword, 4);
     BITS_PRINT_UINT64(qword);
     printf("\n");
 
-#endif /* defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus >= 201103L */
+#endif /* defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus > 199711L */
 
     printf("\n");
 }
@@ -298,9 +318,9 @@ INT_MAIN_ARGC_ARGV_BEGIN
     UINT8               byte;
     UINT16              word;
     UINT32              dword;
-#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus >= 201103L
+#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus > 199711L
     UINT64              qword;
-#endif /* defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus >= 201103L */
+#endif /* defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus > 199711L */
 
     printf("BitsShift test\n");
 
@@ -311,12 +331,12 @@ INT_MAIN_ARGC_ARGV_BEGIN
     printf("\n");
 
     printf("SHIFT_LEFT(byte, 2)    = ");
-    byte = (unsigned char)SHIFT_LEFT(byte, 2);
+    byte = (UINT8)SHIFT_LEFT(byte, 2);
     BITS_PRINT_UINT8(byte);
     printf("\n");
 
     printf("SHIFT_RIGHT(byte, 4)   = ");
-    byte = (unsigned char)SHIFT_RIGHT(byte, 4);
+    byte = (UINT8)SHIFT_RIGHT(byte, 4);
     BITS_PRINT_UINT8(byte);
     printf("\n");
 
@@ -329,12 +349,12 @@ INT_MAIN_ARGC_ARGV_BEGIN
     printf("\n");
 
     printf("SHIFT_LEFT(word, 2)    = ");
-    word = (unsigned short)SHIFT_LEFT(word, 2);
+    word = (UINT16)SHIFT_LEFT(word, 2);
     BITS_PRINT_UINT16(word);
     printf("\n");
 
     printf("SHIFT_RIGHT(word, 4)   = ");
-    word = (unsigned short)SHIFT_RIGHT(word, 4);
+    word = (UINT16)SHIFT_RIGHT(word, 4);
     BITS_PRINT_UINT16(word);
     printf("\n");
 
@@ -347,36 +367,36 @@ INT_MAIN_ARGC_ARGV_BEGIN
     printf("\n");
 
     printf("SHIFT_LEFT(dword, 2)   = ");
-    dword = (unsigned long)SHIFT_LEFT(dword, 2);
+    dword = (UINT32)SHIFT_LEFT(dword, 2);
     BITS_PRINT_UINT32(dword);
     printf("\n");
 
     printf("SHIFT_RIGHT(dword, 4)  = ");
-    dword = (unsigned long)SHIFT_RIGHT(dword, 4);
+    dword = (UINT32)SHIFT_RIGHT(dword, 4);
     BITS_PRINT_UINT32(dword);
     printf("\n");
 
     printf("\n");
 
-#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus >= 201103L
+#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus > 199711L
 
-    qword = 0x0F0F0F0F0F0F0F0FULL;
+    qword = ((UINT64)0x0F0F0F0F0F0F0F0F);
 
     printf("qword                  = ");
     BITS_PRINT_UINT64(qword);
     printf("\n");
 
     printf("SHIFT_LEFT(qword, 2)   = ");
-    qword = (unsigned long long)SHIFT_LEFT(qword, 2);
+    qword = (UINT64)SHIFT_LEFT(qword, 2);
     BITS_PRINT_UINT64(qword);
     printf("\n");
 
     printf("SHIFT_RIGHT(qword, 4)  = ");
-    qword = (unsigned long long)SHIFT_RIGHT(qword, 4);
+    qword = (UINT64)SHIFT_RIGHT(qword, 4);
     BITS_PRINT_UINT64(qword);
     printf("\n");
 
-#endif /* defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus >= 201103L */
+#endif /* defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus > 199711L */
 
     printf("\n");
 }
@@ -414,7 +434,7 @@ INT_MAIN_ARGC_ARGV_BEGIN
 /* Concatenate.h */
 {
     char Hello, World, HelloWorld;
-    
+
     printf("Concatenate test\n");
 
     CONCATENATE(Hello, World) = 1;
@@ -442,7 +462,7 @@ INT_MAIN_ARGC_ARGV_BEGIN
     printf("isodigit('8')  = %d\n", isodigit('8'));
     printf("\n");
 
-#if !defined(__STDC_VERSION__) || defined(__STDC_VERSION__) && __STDC_VERSION__ < 199901L 
+#if !defined(__STDC_VERSION__) || defined(__STDC_VERSION__) && __STDC_VERSION__ < 199901L
 
     printf("isblank(' ')   = %d\n", isblank(' '));
     printf("isblank('\t')  = %d\n", isblank('\t'));
@@ -465,7 +485,7 @@ INT_MAIN_ARGC_ARGV_BEGIN
 
     printf("Datatype test\n");
 
-    ul32 = ui32;
+    ul32 = (ULONG)ui32;
 
     ARG_USED(ul32);
 
@@ -484,39 +504,39 @@ INT_MAIN_ARGC_ARGV_BEGIN
     BYTE byte;
     WORD word;
     DWORD dword;
-#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L 
+#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus > 199711L
     QWORD qword;
-#endif /*  defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L */
+#endif /*  defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus > 199711L */
 
     printf("DatatypeWin test\n");
 
     byte = MAKEBYTE(0x1, 0x2);
     printf("BYTE        = %02X\n", byte);
-    printf("HINIBBLE    = %01X\n", (BYTE)HINIBBLE(byte));
-    printf("LONIBBLE    = %01X\n", (BYTE)LONIBBLE(byte));
+    printf("HINIBBLE    = %01X\n", HINIBBLE(byte));
+    printf("LONIBBLE    = %01X\n", LONIBBLE(byte));
     printf("\n");
 
     word = MAKEWORD(0x12, 0x34);
     printf("WORD        = %04X\n", word);
-    printf("HIBYTE      = %02X\n", (BYTE)HIBYTE(word));
-    printf("LOBYTE      = %02X\n", (BYTE)LOBYTE(word));
+    printf("HIBYTE      = %02X\n", HIBYTE(word));
+    printf("LOBYTE      = %02X\n", LOBYTE(word));
     printf("\n");
 
     dword = MAKEDWORD(0x1234, 0x5678);
     printf("DWORD       = %08lX\n", (unsigned long)dword);
-    printf("HIWORD      = %04X\n", (WORD)HIWORD(dword));
-    printf("LOWORD      = %04X\n", (WORD)LOWORD(dword));
+    printf("HIWORD      = %04X\n", HIWORD(dword));
+    printf("LOWORD      = %04X\n", LOWORD(dword));
     printf("\n");
 
-#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L 
+#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus > 199711L
 
-    qword = MAKEQWORD(0x12345678ll, 0x9ABCDEF0ll);
+    qword = MAKEQWORD(0x12345678, 0x9ABCDEF0);
     printf("QWORD       = %016llX\n", qword);
-    printf("HIDWORD     = %08X\n", (DWORD)HIDWORD(qword));
-    printf("LODWORD     = %08X\n", (DWORD)LODWORD(qword));
+    printf("HIDWORD     = %08X\n", HIDWORD(qword));
+    printf("LODWORD     = %08X\n", LODWORD(qword));
     printf("\n");
 
-#endif /*  defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L */
+#endif /*  defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus > 199711L */
 
     printf("\n");
 }
@@ -525,9 +545,17 @@ INT_MAIN_ARGC_ARGV_BEGIN
 {
     printf("Date test\n");
 
+#if defined(__clang__)
+#pragma clang unsafe_buffer_usage begin
+#endif /* defined(__clang__) */
+
     printf("year  %d\n", YEAR(__DATE__, 7));
     printf("month %d\n", MONTH(__DATE__, 0));
     printf("day   %d\n", DAY(__DATE__, 4));
+
+#if defined(__clang__)
+#pragma clang unsafe_buffer_usage end
+#endif /* defined(__clang__) */
 
     printf("\n");
 }
@@ -553,12 +581,10 @@ INT_MAIN_ARGC_ARGV_BEGIN
 
     printf("DEC_TO_BIN('9') = %d\n", DEC_TO_BIN('9'));
 
-
     printf("%d ", ARRAY_BIN_TO_DEC(pDecArray, pSrcBinArray, 3));
     printf("pDecArray        = %c %c %c\n", pDecArray[0], pDecArray[1], pDecArray[2]);
     printf("%d ", ARRAY_DEC_TO_BIN(pBinArray, pDecArray, 3));
     printf("pBinArray        = %02d %02d %02d\n", pBinArray[0], pBinArray[1], pBinArray[2]);
-
 
     printf("\n");
 }
@@ -575,10 +601,10 @@ INT_MAIN_ARGC_ARGV_BEGIN
     PRINT_VARIABLE_L((long)1L);
     PRINT_VARIABLE_UL((unsigned long)1L);
 
-#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L 
+#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus > 199711L
     PRINT_VARIABLE_LL((long long)1LL);
     PRINT_VARIABLE_ULL((unsigned long long)1LL);
-#endif
+#endif /* defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus > 199711L */
 
     PRINT_VARIABLE_SIZE_T((size_t)1);
 
@@ -627,7 +653,7 @@ INT_MAIN_ARGC_ARGV_BEGIN
 
 /* Func.h */
 {
-    func__("main");
+    func_("main");
 
     printf("Func test\n");
 
@@ -800,10 +826,10 @@ INT_MAIN_ARGC_ARGV_BEGIN
 {
     long long1 = 5;
     long long2 = 7;
-#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L 
+#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus > 199711L
     long long longlong1 = 5;
     long long longlong2 = 7;
-#endif
+#endif /* defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus > 199711L */
 
     printf("Swap test\n");
 
@@ -814,14 +840,14 @@ INT_MAIN_ARGC_ARGV_BEGIN
     printf("%s = %ld\n", STRINGIFY(long1), long1);
     printf("%s = %ld\n", STRINGIFY(long2), long2);
 
-#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L 
+#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus > 199711L
     printf("%s = %lld\n", STRINGIFY(longlong1), longlong1);
     printf("%s = %lld\n", STRINGIFY(longlong2), longlong2);
     SWAP(longlong1, longlong2);
     printf("after SWAP\n");
     printf("%s = %lld\n", STRINGIFY(longlong1), longlong1);
     printf("%s = %lld\n", STRINGIFY(longlong2), longlong2);
-#endif
+#endif /* defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus > 199711L */
 
     printf("\n");
 }
@@ -830,9 +856,17 @@ INT_MAIN_ARGC_ARGV_BEGIN
 {
     printf("Time test\n");
 
+#if defined(__clang__)
+#pragma clang unsafe_buffer_usage begin
+#endif /* defined(__clang__) */
+
     printf("__HOUR__   = %d\n", HOUR(__TIME__, 0));
     printf("__MINUTE__ = %d\n", MINUTE(__TIME__, 3));
     printf("__SECOND__ = %d\n", SECOND(__TIME__, 6));
+
+#if defined(__clang__)
+#pragma clang unsafe_buffer_usage end
+#endif /* defined(__clang__) */
 
     printf("\n");
 }
