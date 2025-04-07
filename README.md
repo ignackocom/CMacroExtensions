@@ -868,3 +868,5 @@ INT_MAIN_ARGC_ARGV_END
 2025 04 06 BITS REVERSE functions added in BitsReverse.h<br/>
 2025 04 06 BITS ROTATE macros added in BitsRotate.h<br/>
 2025 04 06 BITS SHIFT macros added in BitsShift.h<br/>
+2025 04 07 better BOOL support added<br/>
+2025 04 07 better C++ support added<br/>
