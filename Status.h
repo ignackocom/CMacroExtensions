@@ -22,4 +22,12 @@
 #define NOT_OK      1
 
 
+/* WARNING status macro, positive number >0 */
+#define WARNING(sc)	(sc)
+
+
+/* ERROR status macro, negative number <0 */
+#define ERROR(sc)	(-(sc))
+
+
 #endif /* STATUS_H */

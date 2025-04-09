@@ -43,7 +43,7 @@ void BITS_PRINT_UINT32(UINT32 value)
     return;
 }
 
-#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus)
+#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus > 199711L
 
 void BITS_PRINT_UINT64(UINT64 value)
 {
@@ -53,4 +53,4 @@ void BITS_PRINT_UINT64(UINT64 value)
     return;
 }
 
-#endif /* defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) */
+#endif /* defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus > 199711L */

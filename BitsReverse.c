@@ -85,7 +85,7 @@ UINT32 BITS_REVERSE_UINT32(UINT32 value)
     return(reversed);
 }
 
-#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus)
+#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus > 199711L
 
 UINT64 BITS_REVERSE_UINT64(UINT64 value)
 {
@@ -109,4 +109,4 @@ UINT64 BITS_REVERSE_UINT64(UINT64 value)
     return(reversed);
 }
 
-#endif /* defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) */
+#endif /* defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus > 199711L */
