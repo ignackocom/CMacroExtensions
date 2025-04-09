@@ -13,10 +13,6 @@ Example of use
 #endif /* defined(__clang__) */
 
 #if defined(__clang__)
-#pragma clang diagnostic ignored "-Wdate-time"
-#endif /* defined(__clang__) */
-
-#if defined(__clang__)
 #pragma clang diagnostic ignored "-Wold-style-cast"
 #endif /* defined(__clang__) */
 
@@ -40,18 +36,23 @@ INT_MAIN_ARGC_ARGV_BEGIN
 
 /* STDC and cplusplus */
 {
+    printf("__STDC_VERSION__ or __cplusplus\n");
+
 #if defined(__STDC_VERSION__)
     printf("__STDC_VERSION__  %ld\n", __STDC_VERSION__);
 #endif /* defined(__STDC_VERSION__) */
+
 #if defined(__cplusplus)
     printf("__cplusplus       %ld\n", __cplusplus);
 #endif /* defined(__cplusplus) */
+
     printf("\n");
 }
 
 /* CMacroExtensions.h */
 {
     printf("CMACROEXTENSIONS_VERSION = %ld\n", CMACROEXTENSIONS_VERSION());
+
     printf("\n");
 }
 
@@ -74,13 +75,13 @@ INT_MAIN_ARGC_ARGV_BEGIN
 
 /* ArgUsed.h */
 {
-    unsigned char uc;
+    UINT8 ui8;
 
     printf("ArgUsed test\n");
 
     ARG_USED(argc);
     ARG_USED(argv);
-    ARG_USED(uc);
+    ARG_USED(ui8);
 
     printf("\n");
 }
@@ -91,7 +92,7 @@ INT_MAIN_ARGC_ARGV_BEGIN
 #pragma clang unsafe_buffer_usage begin
 #endif /* defined(__clang__) */
 
-    int arry[5] = { 'a','r','r','a','y' };
+    INT arry[5] = { 'a','r','r','a','y' };
 
     printf("Array test\n");
 
@@ -144,27 +145,27 @@ INT_MAIN_ARGC_ARGV_BEGIN
 
 /* Assert.h */
 {
-    int i;
+    INT i;
 
     printf("Assert test\n");
 
     i = 2;
     ASSERT_MESSAGE(2 == i, "custom error message!");
-    i+=2;
+    i += 2;
 
     printf("\n");
 }
 
 /* Bcd.h */
 {
-    unsigned char pSrcBinArray[5] = { 01, 23, 45, 67, 89 };
-    unsigned char pBinArray[5] = { 0, 0, 0, 0, 0 };
-    unsigned char pBcdArray[5] = { 0, 0, 0, 0, 0 };
+    UINT8 pSrcBinArray[5] = { 01, 23, 45, 67, 89 };
+    UINT8 pBinArray[5] = { 0, 0, 0, 0, 0 };
+    UINT8 pBcdArray[5] = { 0, 0, 0, 0, 0 };
 
     printf("Bcd test\n");
 
-    printf("BIN_TO_BCD(14)     = 0x%02X\n", (unsigned char)BIN_TO_BCD(14));
-    printf("BCD_TO_BIN(0x14)   = %02d\n", BCD_TO_BIN(0x14));
+    printf("BIN_TO_BCD(14)     = 0x%02X\n", (UINT8)BIN_TO_BCD(14));
+    printf("BCD_TO_BIN(0x14)   = %02d\n", (UINT8)BCD_TO_BIN(0x14));
 
     printf("%d ", ARRAY_BIN_TO_BCD(pBcdArray, pSrcBinArray, 5));
     printf("pBcdArray        = %02X %02X %02X %02X %02X\n", pBcdArray[0], pBcdArray[1], pBcdArray[2], pBcdArray[3], pBcdArray[4]);
@@ -227,11 +228,11 @@ INT_MAIN_ARGC_ARGV_BEGIN
 
 /* BitsRotate.h */
 {
-    UINT8               byte;
-    UINT16              word;
-    UINT32              dword;
+    UINT8                byte;
+    UINT16               word;
+    UINT32               dword;
 #if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus > 199711L
-    UINT64              qword;
+    UINT64               qword;
 #endif /* defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus > 199711L */
 
     printf("BitsRotate test\n");
@@ -415,14 +416,14 @@ INT_MAIN_ARGC_ARGV_BEGIN
 
 /* Cast.h */
 {
-    unsigned char byte = 1;
-    unsigned short word = 2;
-    unsigned short* usptr;
+    UINT8 byte = 1;
+    UINT16 word = 2;
+    UINT16* usptr;
 
     printf("Cast test\n");
 
-    byte = CAST(word, unsigned char);
-    usptr = CAST_PTR(&word, unsigned short);
+    byte = CAST(word, UINT8);
+    usptr = CAST_PTR(&word, UINT16);
 
     ARG_USED(byte);
     ARG_USED(word);
@@ -433,7 +434,7 @@ INT_MAIN_ARGC_ARGV_BEGIN
 
 /* Concatenate.h */
 {
-    char Hello, World, HelloWorld;
+    CHAR Hello, World, HelloWorld;
 
     printf("Concatenate test\n");
 
@@ -549,9 +550,9 @@ INT_MAIN_ARGC_ARGV_BEGIN
 #pragma clang unsafe_buffer_usage begin
 #endif /* defined(__clang__) */
 
-    printf("year  %d\n", YEAR(__DATE__, 7));
-    printf("month %d\n", MONTH(__DATE__, 0));
-    printf("day   %d\n", DAY(__DATE__, 4));
+    printf("year  %d\n", YEAR("Apr  7 2025", 7));
+    printf("month %d\n", MONTH("Apr  7 2025", 0));
+    printf("day   %d\n", DAY("Apr  7 2025", 4));
 
 #if defined(__clang__)
 #pragma clang unsafe_buffer_usage end
@@ -571,9 +572,9 @@ INT_MAIN_ARGC_ARGV_BEGIN
 
 /* Dec.h */
 {
-    unsigned char pSrcBinArray[5] = { 01, 02, 03 };
-    unsigned char pBinArray[5] = { 0, 0, 0 };
-    unsigned char pDecArray[5] = { 0, 0, 0 };
+    UINT8 pSrcBinArray[5] = { 01, 02, 03 };
+    UINT8 pBinArray[5] = { 0, 0, 0 };
+    UINT8 pDecArray[5] = { 0, 0, 0 };
 
     printf("Dec test\n");
 
@@ -591,7 +592,7 @@ INT_MAIN_ARGC_ARGV_BEGIN
 
 /* Dump.h */
 {
-    unsigned char ucStr[] = "abc";
+    UINT8 ucStr[] = "abc";
 
     printf("Dump test\n");
 
@@ -664,9 +665,9 @@ INT_MAIN_ARGC_ARGV_BEGIN
 
 /* Hex.h */
 {
-    unsigned char pSrcBinArray[3] = { 01, 02, 0xf };
-    unsigned char pBinArray[3] = { 0, 0, 0 };
-    unsigned char pHexArray[3] = { 0, 0, 0 };
+    UINT8 pSrcBinArray[3] = { 01, 02, 0xf };
+    UINT8 pBinArray[3] = { 0, 0, 0 };
+    UINT8 pHexArray[3] = { 0, 0, 0 };
 
     printf("Hex test\n");
 
@@ -781,7 +782,7 @@ INT_MAIN_ARGC_ARGV_BEGIN
 
 /* New.h */
 {
-    void* vptr;
+    VOID* vptr;
 
     printf("New and Delete test\n");
 
@@ -804,6 +805,30 @@ INT_MAIN_ARGC_ARGV_BEGIN
     printf("\n");
 }
 
+/* ret.h */
+{
+    printf("Ret test\n");
+
+    printf("\n");
+}
+
+/* return.h */
+{
+    printf("Return test\n");
+
+    printf("\n");
+}
+
+/* Status.h */
+{
+    printf("Status test\n");
+
+    printf("warn status %d\n", WARNING(NOT_OK));
+    printf("err  status %d\n", ERROR(NOT_OK));
+
+    printf("\n");
+}
+
 /* StdargExt.h */
 {
     printf("StdargExt test\n");
@@ -813,7 +838,7 @@ INT_MAIN_ARGC_ARGV_BEGIN
 
 /* Stringify.h */
 {
-    int variable = 5;
+    INT variable = 5;
 
     printf("Stringify test\n");
 
@@ -860,9 +885,9 @@ INT_MAIN_ARGC_ARGV_BEGIN
 #pragma clang unsafe_buffer_usage begin
 #endif /* defined(__clang__) */
 
-    printf("__HOUR__   = %d\n", HOUR(__TIME__, 0));
-    printf("__MINUTE__ = %d\n", MINUTE(__TIME__, 3));
-    printf("__SECOND__ = %d\n", SECOND(__TIME__, 6));
+    printf("__HOUR__   = %d\n", HOUR("06:30:44", 0));
+    printf("__MINUTE__ = %d\n", MINUTE("06:30:44", 3));
+    printf("__SECOND__ = %d\n", SECOND("06:30:44", 6));
 
 #if defined(__clang__)
 #pragma clang unsafe_buffer_usage end
@@ -904,3 +929,9 @@ INT_MAIN_ARGC_ARGV_END
 2025 04 06 BITS SHIFT macros added in BitsShift.h<br/>
 2025 04 07 better BOOL support added<br/>
 2025 04 07 better C++ support added<br/>
+2025 04 09 BITS REVERSE and BITS PRINT conditional compilation c++ bugs fixed
+2025 04 09 status.h ERROR and WARNING macros added
+2025 04 09 statement.h macro added
+2025 04 09 ret.h macros added
+2025 04 09 return.h macros added
+2025 04 09 state.h macros added
