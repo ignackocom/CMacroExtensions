@@ -929,9 +929,9 @@ INT_MAIN_ARGC_ARGV_END
 2025 04 06 BITS SHIFT macros added in BitsShift.h<br/>
 2025 04 07 better BOOL support added<br/>
 2025 04 07 better C++ support added<br/>
-2025 04 09 BITS REVERSE and BITS PRINT conditional compilation c++ bugs fixed
-2025 04 09 status.h ERROR and WARNING macros added
-2025 04 09 statement.h macro added
-2025 04 09 ret.h macros added
-2025 04 09 return.h macros added
-2025 04 09 state.h macros added
+2025 04 09 BITS REVERSE and BITS PRINT conditional compilation c++ bugs fixed<br/>
+2025 04 09 status.h ERROR and WARNING macros added<br/>
+2025 04 09 statement.h macro added<br/>
+2025 04 09 ret.h macros added<br/>
+2025 04 09 return.h macros added<br/>
+2025 04 09 state.h macros added<br/>
