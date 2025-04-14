@@ -320,36 +320,7 @@
 } while (0)
 
 
-/******************************************************************************
-* \brief
-*	Print array.
-*
-* \param
-*	array - The array.
-* \param
-*	size - The number of items which will be printed.
-*
-* \return
-*   Nothing (void).
-*
-* \note
-*
-* \code
-*   ...
-*   int arry[5] = { 'a','r','r','a','y' };
-*
-*   ARRAY_PRINT(arry, 3);
-*   ARRAY_PRINT(arry, ARRAY_GET_SIZE(arry));
-*	...
-* \endcode
-*
-*/
-#define ARRAY_PRINT(array, size) \
-    do { \
-        for (size_t _idx_ = 0; _idx_ < (size); _idx_++) { \
-            printf("%d ", (array)[_idx_]); \
-        } \
-    } while (0)
+/* To print arrays use Dump.h macros ! */
 
 
 #endif /* ARRAY_H */

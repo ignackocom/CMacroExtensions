@@ -21,6 +21,7 @@
 #include "Array.h"
 #include "Assert.h"
 #include "Bcd.h"
+#include "Bits.h"
 #include "BitsPerType.h"
 #include "BitsPrint.h"
 #include "BitsReverse.h"

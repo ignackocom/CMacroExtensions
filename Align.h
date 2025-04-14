@@ -36,7 +36,7 @@
 *
 */
 #define ALIGN_UP(value, alignment) \
-	(((value) + ((alignment) - 1)) & ~((alignment) - 1))
+	(size_t)(((value) + ((alignment) - 1)) & ~((alignment) - 1))
 
 
 /******************************************************************************
@@ -60,7 +60,7 @@
 * \endcode
 *
 */
-#define ALIGN_DOWN(value, alignment) ((value) & ~((alignment) - 1))
+#define ALIGN_DOWN(value, alignment) (size_t)((value) & ~((alignment) - 1))
 
 
 /******************************************************************************
@@ -135,7 +135,7 @@
 *
 */
 #define ALIGN_SIZE(value, multiple) \
-	(((value) + (multiple) - 1) / (multiple) * (multiple))
+	(size_t)(((value) + (multiple) - 1) / (multiple) * (multiple))
 
 
 #endif /* ALIGN_H */
