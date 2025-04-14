@@ -1401,6 +1401,6 @@ INT_MAIN_ARGC_ARGV_END
 2025 04 09 return.h macros added<br/>
 2025 04 09 state.h macros added<br/>
 2025 04 14 dump.h macros completed<br/>
-2025 04 14 array.h ARRAY_PRINT macro canceled, please use dump.h macros
-2025 04 14 align.h some align macros returns size_t data type value
-2025 04 14 bits.h bit manipulating and lsb and msb macros added
+2025 04 14 array.h ARRAY_PRINT macro canceled, please use dump.h macros<br/>
+2025 04 14 align.h some align macros returns size_t data type value<br/>
+2025 04 14 bits.h bit manipulating and lsb and msb macros added<br/>
