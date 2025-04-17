@@ -39,7 +39,7 @@ Example of use
 INT_MAIN_ARGC_ARGV_BEGIN
 
 /* STDC and cplusplus */
-{
+BEGIN
     printf("__STDC_VERSION__ or __cplusplus\n");
 
 #if defined(__STDC_VERSION__)
@@ -51,7 +51,7 @@ INT_MAIN_ARGC_ARGV_BEGIN
 #endif /* defined(__cplusplus) */
 
     printf("\n\n");
-}
+END
 
 
 /* CMacroExtensions.h */
@@ -1121,6 +1121,28 @@ INT_MAIN_ARGC_ARGV_BEGIN
     printf("\n\n");
 }
 
+/* Logic.h */
+{
+    int a;
+    int b;
+
+    printf("Logic test\n");
+
+    a = 5;  // 0101 in binary
+    b = 3;  // 0011 in binary
+
+    printf("a = %d //0101, b = %d // 0011\n", a, b);
+    printf("BITWISE_NOT(a)     = %d\n", BITWISE_NOT(a));
+    printf("BITWISE_AND(a, b)  = %d\n", BITWISE_AND(a, b));
+    printf("BITWISE_NAND(a, b) = %d\n", BITWISE_NAND(a, b));
+    printf("BITWISE_OR(a, b)   = %d\n", BITWISE_OR(a, b));
+    printf("BITWISE_NOR(a, b)  = %d\n", BITWISE_NOR(a, b));
+    printf("BITWISE_XOR(a, b)  = %d\n", BITWISE_XOR(a, b));
+    printf("BITWISE_XNOR(a, b) = %d\n", BITWISE_XNOR(a, b));
+
+    printf("\n\n");
+}
+
 /* Math.h */
 {
     printf("Math test\n");
@@ -1404,3 +1426,6 @@ INT_MAIN_ARGC_ARGV_END
 2025 04 14 array.h ARRAY_PRINT macro canceled, please use dump.h macros<br/>
 2025 04 14 align.h some align macros returns size_t data type value<br/>
 2025 04 14 bits.h bit manipulating and lsb and msb macros added<br/>
+2025 04 17 direction.h macros added<br/>
+2025 04 17 pascal.h macros added<br/>
+2025 04 17 logic.h bitwise macros added<br/>
