@@ -26,7 +26,7 @@
 
 #if !defined(__cplusplus)
 
-	#if !defined(__STDC_VERSION__)
+	#if !defined(__STDC_VERSION__) || __STDC_VERSION__ < 199901L
 
 		/* C89 */
 
@@ -38,13 +38,27 @@
 
 		#include <stdbool.h>
 
-		typedef enum { FALSE = false, TRUE = true, False = false, True = true } BOOL, Bool;
+		#define BOOL _Bool
+		#define Bool _Bool
+
+		#define TRUE true
+		#define True true
+
+		#define FALSE false
+		#define False false
 
 	#else
 
 		/* C23 and higher */
 
-		typedef enum { FALSE = false, TRUE = true, False = false, True = true } BOOL, Bool;
+		typedef bool	BOOL;
+		typedef bool	Bool;
+
+		#define FALSE	false
+		#define TRUE	true
+
+		#define False	false
+		#define True	true
 
 	#endif /* !defined(__STDC_VERSION__) || defined(__STDC_VERSION__) && __STDC_VERSION__ < 202311L */
 
@@ -52,7 +66,14 @@
 
 	/* C++ */
 
-	typedef enum { FALSE = false, TRUE = true, False = false, True = true } BOOL, Bool;
+	typedef bool	BOOL;
+	typedef bool	Bool;
+
+	#define FALSE	false
+	#define TRUE	true
+
+	#define False	false
+	#define True	true
 
 #endif /* !defined(__cplusplus) */
 

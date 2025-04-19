@@ -423,7 +423,9 @@ END
     UINT8  byte;
     UINT16 word;
     UINT32 dword;
+#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus > 199711L
     UINT64 qword;
+#endif /* defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus > 199711L */
 
     printf("Bits test\n");
 
@@ -792,7 +794,7 @@ END
     b1 = TRUE;
     b2 = b1;
     b3 = b2;
-    b1 = (BOOL)b3;
+    b1 = b3;
 
     printf("\n\n");
 }
@@ -1286,11 +1288,12 @@ END
 /* Return.h */
 {
     printf("Return test\n");
-
-//        int i = 1;
-//        RETURN_WARNING(i, "message");
-//        RETURN_ERROR(i, "message");
-//        EXIT_ERROR("message");
+/*
+    int i = 1;
+    RETURN_WARNING(i, "message");
+    RETURN_ERROR(i, "message");
+    EXIT_ERROR("message");
+*/
     printf("\n");
 }
 
@@ -1308,12 +1311,14 @@ END
 
 /* StdargExt.h */
 {
-    va_list args;
-    va_list args2;
+/*  va_list args; */
+/*  va_list args2; */
 
     printf("StdargExt test\n");
 
-    va_copy(args2, args); /* copy va_list object */
+/*  va_start(args, 1); */
+/*  va_copy(args2, args); *//* copy va_list object */
+/*  va_end(args); */
 
     printf("\n\n");
 }
@@ -1429,3 +1434,4 @@ INT_MAIN_ARGC_ARGV_END
 2025 04 17 direction.h macros added<br/>
 2025 04 17 pascal.h macros added<br/>
 2025 04 17 logic.h bitwise macros added<br/>
+2025 04 19 bool.h cross keyword, cross C and CPP bool added<br/>
