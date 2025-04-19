@@ -30,7 +30,8 @@
 
 int ARRAY_BIN_TO_HEX(unsigned char* pDstHexArray, const unsigned char* pSrcBinArray, int iLength)
 {
-    for (int i = 0; i < iLength; i++)
+    int i;
+    for (i = 0; i < iLength; i++)
     {
         if (!BIN_IS_VALID(pSrcBinArray[i])) return(-1);
         pDstHexArray[i] = (unsigned char)BIN_TO_HEX((unsigned char)pSrcBinArray[i]);
@@ -40,7 +41,8 @@ int ARRAY_BIN_TO_HEX(unsigned char* pDstHexArray, const unsigned char* pSrcBinAr
 
 int ARRAY_HEX_TO_BIN(unsigned char* pDstBinArray, const unsigned char* pSrcHexArray, int iLength)
 {
-    for (int i = 0; i < iLength; i++)
+    int i;
+    for (i = 0; i < iLength; i++)
     {
         if (!HEX_IS_VALID(pSrcHexArray[i])) return(-1);
         pDstBinArray[i] = (unsigned char)HEX_TO_BIN((unsigned char)pSrcHexArray[i]);

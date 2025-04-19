@@ -28,7 +28,8 @@
 
 int ARRAY_BIN_TO_DEC(unsigned char* pDstDecArray, const unsigned char* pSrcBinArray, int iLength)
 {
-    for (int i = 0; i < iLength; i++)
+    int i;
+    for (i = 0; i < iLength; i++)
     {
         if (!BIN_IS_VALID(pSrcBinArray[i])) return(-1);
         pDstDecArray[i] = (unsigned char)BIN_TO_DEC((unsigned char)pSrcBinArray[i]);
@@ -38,7 +39,8 @@ int ARRAY_BIN_TO_DEC(unsigned char* pDstDecArray, const unsigned char* pSrcBinAr
 
 int ARRAY_DEC_TO_BIN(unsigned char* pDstBinArray, const unsigned char* pSrcDecArray, int iLength)
 {
-    for (int i = 0; i < iLength; i++)
+    int i;
+    for (i = 0; i < iLength; i++)
     {
         if (!DEC_IS_VALID(pSrcDecArray[i])) return(-1);
         pDstBinArray[i] = (unsigned char)DEC_TO_BIN((unsigned char)pSrcDecArray[i]);

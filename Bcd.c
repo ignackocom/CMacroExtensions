@@ -28,7 +28,8 @@
 
 int ARRAY_BIN_TO_BCD(unsigned char* pDstBcdArray, const unsigned char* pSrcBinArray, int iLength)
 {
-    for (int i = 0; i < iLength; i++)
+    int i;
+    for (i = 0; i < iLength; i++)
     {
         if (!BIN_IS_VALID(pSrcBinArray[i])) return(-1);
         pDstBcdArray[i] = (unsigned char)BIN_TO_BCD((unsigned char)pSrcBinArray[i]);
@@ -38,7 +39,8 @@ int ARRAY_BIN_TO_BCD(unsigned char* pDstBcdArray, const unsigned char* pSrcBinAr
 
 int ARRAY_BCD_TO_BIN(unsigned char* pDstBinArray, const unsigned char* pSrcBcdArray, int iLength)
 {
-    for (int i = 0; i < iLength; i++)
+    int i;
+    for (i = 0; i < iLength; i++)
     {
         if (!BCD_IS_VALID(pSrcBcdArray[i])) return(-1);
         pDstBinArray[i] = (unsigned char)BCD_TO_BIN((unsigned char)pSrcBcdArray[i]);

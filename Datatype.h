@@ -61,10 +61,13 @@ typedef unsigned long       ULong;
 
 typedef     float           Float;
 
+#if !defined(__SDCC) && !defined(SDCC)
+
 typedef     double          Double;
 
 typedef     long double     LongDouble;
 
+#endif /* !defined(__SDCC) && !defined(SDCC) */
 
 
 typedef Void                VOID;
@@ -92,10 +95,13 @@ typedef ULongLong           ULONGLONG;
 
 typedef     Float           FLOAT;
 
+#if !defined(__SDCC) && !defined(SDCC)
+
 typedef     Double          DOUBLE;
 
 typedef     LongDouble      LONGDOUBLE;
 
+#endif /* !defined(__SDCC) && !defined(SDCC) */
 
 
 /******************************************************************************
@@ -213,24 +219,35 @@ typedef     UInt64          UI64;
 */
 typedef     Float           Float32;
 
+#if !defined(__SDCC) && !defined(SDCC)
+
 typedef     Double          Float64;
 
 typedef     LongDouble      Float128;
 
+#endif /* !defined(__SDCC) && !defined(SDCC) */
+
 
 typedef     Float           FLOAT32;
+
+#if !defined(__SDCC) && !defined(SDCC)
 
 typedef     Double          FLOAT64;
 
 typedef     LongDouble      FLOAT128;
 
+#endif /* !defined(__SDCC) && !defined(SDCC) */
+
 
 typedef     Float           F32;
+
+#if !defined(__SDCC) && !defined(SDCC)
 
 typedef     Double          F64;
 
 typedef     LongDouble      F128;
 
+#endif /* !defined(__SDCC) && !defined(SDCC) */
 
 
 #endif /* LANGUAGEDATATYPE_H */

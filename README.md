@@ -1435,3 +1435,5 @@ INT_MAIN_ARGC_ARGV_END
 2025 04 17 pascal.h macros added<br/>
 2025 04 17 logic.h bitwise macros added<br/>
 2025 04 19 bool.h cross keyword, cross C and CPP bool added<br/>
+2025 04 19 datatype.h SDCC compiler support added<br/>
+2025 04 19 better C89 support added in Bcd.c,Dec.c and Hex.c<br/>
