@@ -1,15 +1,16 @@
 /******************************************************************************
-* \file      CExtencions.c
+* \file      SystemHalt.c
 * \author    Peter Potrok
 * \copyright Copyright (c) 1994 - 2025
 *            MIT License (see License.txt file)
-* \brief     C Macro Extensions,
-*            a library collection of commonly used macros in the C language.
-*            C89, C99 and >C99 compatible.
+* \brief     Halt function
+* \details
 *
 * \see
 *            and other resources
 ******************************************************************************/
+
+#include <stdio.h>
 
 
 #if defined(__clang__)
@@ -17,10 +18,15 @@
 #endif /* defined(__clang__) */
 
 
-#include "CMacroExtensions.h"
+#include "Noreturn.h"
+#include "SystemHalt.h"
 
 
-long CMACROEXTENSIONS_VERSION(void)
+NORETURN void halt(const char* str)
 {
-    return (CMACROEXTENSIONS_H);
+	fprintf(stderr, "\n\n");
+	fprintf(stderr, "%s", str);
+	fprintf(stderr, "\n\n -- System halted! -- ");
+
+	while (1);
 }

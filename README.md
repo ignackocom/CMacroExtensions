@@ -15,6 +15,10 @@ Example of use
 #endif /* defined(__clang__) */
 
 #if defined(__clang__)
+#pragma clang diagnostic ignored "-Wpre-c11-compat"
+#endif /* defined(__clang__) */
+
+#if defined(__clang__)
 #pragma clang diagnostic ignored "-Wold-style-cast"
 #endif /* defined(__clang__) */
 
@@ -1323,6 +1327,22 @@ END
     printf("\n\n");
 }
 
+/* StringExt.h */
+{
+    char castr[] = "Test String";
+
+    printf("StingExt test\n");
+
+    printf("string_is_terminated = %d\n", string_is_terminated(castr, ARRAY_GET_SIZE(castr)));
+    string_upper(castr, castr);
+    printf("String to upper %s\n", castr);
+    string_lower(castr, castr);
+    printf("String to lower %s\n", castr);
+    string_reverse(castr);
+    printf("Reversed string %s\n", castr);
+
+    printf("\n\n");
+}
 
 /* Stringify.h */
 {
@@ -1437,3 +1457,6 @@ INT_MAIN_ARGC_ARGV_END
 2025 04 19 bool.h cross keyword, cross C and CPP bool added<br/>
 2025 04 19 datatype.h SDCC compiler support added<br/>
 2025 04 19 better C89 support added in Bcd.c,Dec.c and Hex.c<br/>
+2025 04 20 noreturn.h cross C and CPP noreturn added<br/>
+2025 04 20 stringext.h/c functions added<br/>
+2025 04 20 systemhalt.h/c halt function added<br/>
