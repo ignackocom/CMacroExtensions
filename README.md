@@ -1094,6 +1094,7 @@ END
     UINT8 pSrcBinArray[3] = { 01, 02, 0xf };
     UINT8 pBinArray[3] = { 0, 0, 0 };
     UINT8 pHexArray[3] = { 0, 0, 0 };
+    UINT8 pHex[7] = { 0, 0, 0, 0, 0, 0, 0 };
 
     printf("Hex test\n");
 
@@ -1107,7 +1108,12 @@ END
     printf("%d ", ARRAY_BIN_TO_HEX(pHexArray, pSrcBinArray, 3));
     printf("pHexArray        = %c %c %c\n", pHexArray[0], pHexArray[1], pHexArray[2]);
     printf("%d ", ARRAY_HEX_TO_BIN(pBinArray, pHexArray, 3));
-    printf("pBinArray        = %02d %02d %02d\n", pBinArray[0], pBinArray[1], pBinArray[2]);
+    printf("pBinArray        = %02X %02X %02X\n", pBinArray[0], pBinArray[1], pBinArray[2]);
+
+    ARRAY_BIN_TO_HEX_UNPACK(pHex, pSrcBinArray, 3);
+    printf("pHex             = %s\n", pHex);
+    ARRAY_HEX_TO_BIN_PACK(pBinArray, pHex, 6);
+    printf("pBinArray        = %02X %02X %02X\n", pBinArray[0], pBinArray[1], pBinArray[2]);
 
     printf("\n\n");
 }
@@ -1460,3 +1466,4 @@ INT_MAIN_ARGC_ARGV_END
 2025 04 20 noreturn.h cross C and CPP noreturn added<br/>
 2025 04 20 stringext.h/c functions added<br/>
 2025 04 20 systemhalt.h/c halt function added<br/>
+2025 04 21 hex.c/h functions added<br/>

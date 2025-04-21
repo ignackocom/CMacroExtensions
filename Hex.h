@@ -120,6 +120,53 @@ extern "C" {
 	*/
 	int ARRAY_HEX_TO_BIN(unsigned char* pDstBinArray, const unsigned char* pSrcHexArray, int iLength);
 
+
+	/******************************************************************************
+	* \brief
+	*	Function to convert binary data to a hexadecimal data.
+	*
+	* \param
+	*	pDstHexArray - The destination HEX array.
+	* \param
+	*	pSrcBinArray - The source Binary array.
+	* \param
+	*	iLength - The length of pSrcBinArray.
+	*
+	* \note
+	*	none
+	*
+	* \code
+	*   ...
+	*   ARRAY_BIN_TO_HEX_UNPACK(DstHexArray, SrcBinArray, Length);
+	*	...
+	* \endcode
+	*
+	*/
+	void ARRAY_BIN_TO_HEX_UNPACK(unsigned char* pDstHexArray, const unsigned char* pSrcBinArray, int iLength);
+
+	/******************************************************************************
+	* \brief
+	*	Function to convert a hexadecimal data to binary data.
+	*
+	* \param
+	*	pDstBinArray - The destination Binary array.
+	* \param
+	*	pSrcHexArray - The source HEX array.
+	* \param
+	*	iLength - The length of pSrcHexArray.
+	*
+	* \note
+	*	none
+	*
+	* \code
+	*   ...
+	*   ARRAY_HEX_TO_BIN_PACK(DstBinArray, SrcHexArray, Length);
+	*	...
+	* \endcode
+	*
+	*/
+	void ARRAY_HEX_TO_BIN_PACK(unsigned char* pDstBinArray, const unsigned char* pSrcHexArray, int iLength);
+
 #ifdef __cplusplus
 }
 #endif

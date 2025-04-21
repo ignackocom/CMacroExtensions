@@ -15,7 +15,7 @@
 #endif /* defined(__clang__) */
 
 #include "Hex.h"
-
+#include <stdlib.h>
 
 #define BIN_IS_VALID(bin)   ( ((bin)>=0 && (bin) <= 0xF) ? 1 : 0 )
 
@@ -48,6 +48,28 @@ int ARRAY_HEX_TO_BIN(unsigned char* pDstBinArray, const unsigned char* pSrcHexAr
         pDstBinArray[i] = (unsigned char)HEX_TO_BIN((unsigned char)pSrcHexArray[i]);
     }
     return(0);
+}
+
+
+void ARRAY_BIN_TO_HEX_UNPACK(unsigned char* pDstHexArray, const unsigned char* pSrcBinArray, int iLength)
+{
+    int i;
+    for (i = 0; i < iLength; i++)
+    {
+        pDstHexArray[i * 2]     = BIN_TO_HEX((pSrcBinArray[i] >> 4) & 0x0F); /* high nibble */
+        pDstHexArray[i * 2 + 1] = BIN_TO_HEX (pSrcBinArray[i]       & 0x0F); /* low nibble */
+    }
+    return;
+}
+
+void ARRAY_HEX_TO_BIN_PACK(unsigned char* pDstBinArray, const unsigned char* pSrcHexArray, int iLength)
+{
+    int i;
+    for (i = 0; i < (iLength/2); i++)
+    {
+        pDstBinArray[i] = (unsigned char)(HEX_TO_BIN(pSrcHexArray[i*2])<<4)|(HEX_TO_BIN(pSrcHexArray[(i*2)+1]));
+    }
+    return;
 }
 
 #if defined(__clang__)
