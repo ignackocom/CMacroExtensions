@@ -4,7 +4,7 @@ C89, C99 and >C99 compatible, CPP98 and >CPP98 compatible, Embedded C compatible
 
 Example of use
 
-```
+```c
 #include <stdio.h>
 #include <stdarg.h>
 
@@ -1234,6 +1234,8 @@ END
 {
     struct abc { int a; short b; short c; };
 
+    struct abc def;
+
     printf("Member test\n");
 
     printf("MEMBER_SIZEOF(abc, a)      = %zu\n", MEMBER_SIZEOF(struct abc, a));
@@ -1259,8 +1261,9 @@ END
     printf("New and Delete test\n");
 
     vptr = NEW(10);
-    if(vptr != NULL) printf("allocated\n");
+    if(vptr != NULL)
     {
+        printf("allocated\n");
         DELETE(vptr);
         printf("deallocated\n");
     }
