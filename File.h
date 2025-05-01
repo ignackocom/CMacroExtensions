@@ -24,7 +24,8 @@
     defined(__MINGW32__) || defined(__MINGW64__) || \
     defined(_WIN32_WCE) || defined(WIN32_PLATFORM_HPC2000) || \
     defined(WIN32_PLATFORM_HPCPRO) || defined(WIN32_PLATFORM_PSPC) || \
-    defined(WIN32_PLATFORM_WFSP	)
+    defined(WIN32_PLATFORM_WFSP	) || \
+    defined(MSDOS) || defined(__MSDOS__) || defined(_MSDOS) || defined(__DOS__)
 #define FILE_SEPARATOR  '\\'
 #else
 #define FILE_SEPARATOR  '/'

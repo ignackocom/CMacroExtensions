@@ -14,9 +14,24 @@
 #define LANGUAGEDATATYPE_H		20250318L
 
 
-#if defined(__cplusplus) && __cplusplus > 199711L
-/* C++ */
-#include <cstdint>
+#if !defined(__cplusplus)
+
+    #if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L
+
+        /* since C99 */
+        #include <stdint.h>
+
+    #endif
+
+#else
+
+    #if defined(__cplusplus) && __cplusplus > 199711L
+
+        /* C++ */
+        #include <cstdint>
+
+    #endif
+
 #endif
 
 
@@ -112,7 +127,6 @@ typedef     LongDouble      LONGDOUBLE;
     #if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L
 
         /* since C99 */
-        #include <stdint.h>
 
         typedef  int8_t         Int8;
         typedef  uint8_t        UInt8;

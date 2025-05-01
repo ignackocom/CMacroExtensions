@@ -1,9 +1,9 @@
 /******************************************************************************
-* \file      SystemHalt.h
+* \file      SystemAbort.h
 * \author    Peter Potrok
 * \copyright Copyright (c) 1994 - 2025
 *            MIT License (see License.txt file)
-* \brief     Halt function
+* \brief     Abort function
 * \details
 *
 * \see
@@ -21,7 +21,7 @@ extern "C" {
 
 	/******************************************************************************
 	* \brief
-	*	System halt function with error message.
+	*	System abort function with error message.
 	*
 	* \param
 	*	str - String error message.
@@ -31,7 +31,7 @@ extern "C" {
 	* \endcode
 	*
 	*/
-	NORETURN void SystemHalt(const char* str);
+	NORETURN void SystemAbort(const char* str);
 
 
 #ifdef __cplusplus
@@ -39,4 +39,4 @@ extern "C" {
 #endif
 
 
-#endif /* SYSTEMHALT_H */
+#endif /* SYSTEMABORT_H */

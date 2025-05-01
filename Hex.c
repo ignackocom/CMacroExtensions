@@ -56,8 +56,8 @@ void ARRAY_BIN_TO_HEX_UNPACK(unsigned char* pDstHexArray, const unsigned char* p
     int i;
     for (i = 0; i < iLength; i++)
     {
-        pDstHexArray[i * 2]     = BIN_TO_HEX((pSrcBinArray[i] >> 4) & 0x0F); /* high nibble */
-        pDstHexArray[i * 2 + 1] = BIN_TO_HEX (pSrcBinArray[i]       & 0x0F); /* low nibble */
+        pDstHexArray[i * 2]     = (unsigned char)BIN_TO_HEX((pSrcBinArray[i] >> 4) & 0x0F); /* high nibble */
+        pDstHexArray[i * 2 + 1] = (unsigned char)BIN_TO_HEX (pSrcBinArray[i]       & 0x0F); /* low nibble */
     }
     return;
 }
@@ -67,7 +67,7 @@ void ARRAY_HEX_TO_BIN_PACK(unsigned char* pDstBinArray, const unsigned char* pSr
     int i;
     for (i = 0; i < (iLength/2); i++)
     {
-        pDstBinArray[i] = (unsigned char)(HEX_TO_BIN(pSrcHexArray[i*2])<<4)|(HEX_TO_BIN(pSrcHexArray[(i*2)+1]));
+        pDstBinArray[i] = (unsigned char)((HEX_TO_BIN(pSrcHexArray[i*2])<<4) & 0xF0) | HEX_TO_BIN(pSrcHexArray[(i*2)+1]);
     }
     return;
 }

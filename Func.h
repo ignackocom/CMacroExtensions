@@ -16,9 +16,13 @@
 
 /* function name definition */
 #if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus)
-#define func_(n)			((void)0)
+	#define func_(n)			((void)0)
 #else
-#define func_(n)			const char __func__[] = (n)
+	#if defined(__TURBOC__)
+		#define func_(n)			const char __func__[] = n
+	#else
+		#define func_(n)			const char __func__[] = (n)
+	#endif /* defined(__TURBOC__) */
 #endif
 
 

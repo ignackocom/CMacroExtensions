@@ -28,7 +28,7 @@
 #endif /* defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus > 199711L */
 
 
-#define PRINT_VARIABLE_SIZE_T(var)	printf("%s = %zu\n",#var,(var))
+#define PRINT_VARIABLE_SIZE_T(var)	printf("%s = %ld\n",#var,(long)(var))
 
 
 #define PRINT_POINTER(var)			printf("%s = %p\n",#var,(var))
@@ -38,16 +38,18 @@
 
 
 #define PRINT_ARRAY(arry,size)      do { \
+                                        size_t _idx_; \
                                         printf("%s[%d] = [ ", #arry, size); \
-                                        for (size_t _idx_ = 0; _idx_ < (size); _idx_++) { \
+                                        for (_idx_ = 0; _idx_ < (size); _idx_++) { \
                                             printf("%d ", (arry)[_idx_]); \
                                         } \
                                         printf("]"); \
                                     } while (0)
 
 #define PRINT_ARRAY_U(arry,size)    do { \
+                                        size_t _idx_; \
                                         printf("%s[%d] = [ ", #arry, size); \
-                                        for (size_t _idx_ = 0; _idx_ < (size); _idx_++) { \
+                                        for (_idx_ = 0; _idx_ < (size); _idx_++) { \
                                             printf("%u ", (arry)[_idx_]); \
                                         } \
                                         printf("]"); \
@@ -55,16 +57,18 @@
 
 
 #define PRINT_ARRAY_L(arry,size)    do { \
+                                        size_t _idx_; \
                                         printf("%s[%d] = [ ", #arry, size); \
-                                        for (size_t _idx_ = 0; _idx_ < (size); _idx_++) { \
+                                        for (_idx_ = 0; _idx_ < (size); _idx_++) { \
                                             printf("%ld ", (arry)[_idx_]); \
                                         } \
                                         printf("]"); \
                                     } while (0)
 
 #define PRINT_ARRAY_UL(arry,size)   do { \
+                                        size_t _idx_; \
                                         printf("%s[%d] = [ ", #arry, size); \
-                                        for (size_t _idx_ = 0; _idx_ < (size); _idx_++) { \
+                                        for (_idx_ = 0; _idx_ < (size); _idx_++) { \
                                             printf("%lu ", (arry)[_idx_]); \
                                         } \
                                         printf("]"); \
@@ -74,16 +78,18 @@
 #if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus > 199711L
 
 #define PRINT_ARRAY_LL(arry,size)   do { \
+                                        size_t _idx_; \
                                         printf("%s[%d] = [ ", #arry, size); \
-                                        for (size_t _idx_ = 0; _idx_ < (size); _idx_++) { \
+                                        for (_idx_ = 0; _idx_ < (size); _idx_++) { \
                                             printf("%lld ", (arry)[_idx_]); \
                                         } \
                                         printf("]"); \
                                     } while (0)
 
 #define PRINT_ARRAY_ULL(arry,size)  do { \
+                                        size_t _idx_; \
                                         printf("%s[%d] = [ ", #arry, size); \
-                                        for (size_t _idx_ = 0; _idx_ < (size); _idx_++) { \
+                                        for (_idx_ = 0; _idx_ < (size); _idx_++) { \
                                             printf("%llu ", (arry)[_idx_]); \
                                         } \
                                         printf("]"); \

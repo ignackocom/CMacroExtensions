@@ -19,24 +19,24 @@
 #if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus > 199711L
 
 #define RETURN_WARNING(code, msg) \
-    do { fprintf(stderr, "[WARNING] %s:%zu in %s(), %s\n", __FILE__, (size_t)__LINE__, __func__, (msg)); \
+    do { fprintf(stderr, "[WARNING] %s:%ld in %s(), %s\n", __FILE__, (long)__LINE__, __func__, (msg)); \
          return (code); \
     } while (0)
 
 #define RETURN_ERROR(code, msg) \
-    do { fprintf(stderr, "[  ERROR] %s:%zu in %s(), %s\n", __FILE__, (size_t)__LINE__, __func__, (msg)); \
+    do { fprintf(stderr, "[  ERROR] %s:%ld in %s(), %s\n", __FILE__, (long)__LINE__, __func__, (msg)); \
          return (code); \
     } while (0)
 
 #else /* defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus > 199711L */
 
 #define RETURN_WARNING(code, msg) \
-    do { fprintf(stderr, "[WARNING] %s:%zu, %s\n", __FILE__, (size_t)__LINE__, (msg)); \
+    do { fprintf(stderr, "[WARNING] %s:%ld, %s\n", __FILE__, (long)__LINE__, (msg)); \
          return (code); \
     } while (0)
 
 #define RETURN_ERROR(code, msg) \
-    do { fprintf(stderr, "[  ERROR] %s:%zu, %s\n", __FILE__, (size_t)__LINE__, (msg)); \
+    do { fprintf(stderr, "[  ERROR] %s:%ld, %s\n", __FILE__, (long)__LINE__, (msg)); \
          return (code); \
     } while (0)
 
@@ -49,14 +49,14 @@
 #if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus > 199711L
 
 #define EXIT_ERROR(msg) \
-    do { fprintf(stderr, "[EXIT ERROR] %s:%zu in %s(), %s\n", __FILE__, (size_t)__LINE__, __func__, (msg)); \
+    do { fprintf(stderr, "[EXIT ERROR] %s:%ld in %s(), %s\n", __FILE__, (long)__LINE__, __func__, (msg)); \
          exit(EXIT_FAILURE); \
     } while (0)
 
 #else /* defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus > 199711L */
 
 #define EXIT_ERROR(msg) \
-    do { fprintf(stderr, "[EXIT ERROR] %s:%zu, %s\n", __FILE__, (size_t)__LINE__, (msg)); \
+    do { fprintf(stderr, "[EXIT ERROR] %s:%ld, %s\n", __FILE__, (long)__LINE__, (msg)); \
          exit(EXIT_FAILURE); \
     } while (0)
 

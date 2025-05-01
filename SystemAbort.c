@@ -1,9 +1,9 @@
 /******************************************************************************
-* \file      SystemHalt.c
+* \file      SystemAbort.c
 * \author    Peter Potrok
 * \copyright Copyright (c) 1994 - 2025
 *            MIT License (see License.txt file)
-* \brief     Halt function
+* \brief     Abort function
 * \details
 *
 * \see
@@ -11,22 +11,21 @@
 ******************************************************************************/
 
 #include <stdio.h>
-
+#include <stdlib.h>
 
 #if defined(__clang__)
 #pragma clang diagnostic ignored "-Wpre-c11-compat"
 #endif /* defined(__clang__) */
 
-
 #include "Noreturn.h"
-#include "SystemHalt.h"
+#include "SystemAbort.h"
 
 
-NORETURN void SystemHalt(const char* str)
+NORETURN void SystemAbort(const char* str)
 {
 	fprintf(stderr, "\n\n");
 	fprintf(stderr, "%s", str);
-	fprintf(stderr, "\n\n -- System halted! -- ");
+	fprintf(stderr, "\n\n -- System aborted! -- ");
 
-	while (1);
+	abort();
 }

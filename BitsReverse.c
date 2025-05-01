@@ -23,13 +23,14 @@ UINT8 BITS_REVERSE_UINT8(UINT8 value)
 {
     int bit_count;
     UINT8 reversed;
+    int i;
     
     reversed = (UINT8)0;
 
     /* number of bits in the type (e.g., 8 for unsigned char) */
     bit_count = sizeof(value) * CHAR_BIT;
 
-    for (int i = 0; i < bit_count; i++) {
+    for (i = 0; i < bit_count; i++) {
         /* shift the reversed number to the left to make space for the next bit */
         reversed <<= 1;
         /* add the least significant bit of num to the reversed number */
@@ -45,13 +46,14 @@ UINT16 BITS_REVERSE_UINT16(UINT16 value)
 {
     int bit_count;
     UINT16 reversed;
+    int i;
 
     reversed = (UINT16)0;
 
     /* number of bits in the type (e.g., 16 for unsigned short) */
     bit_count = sizeof(value) * CHAR_BIT;
 
-    for (int i = 0; i < bit_count; i++) {
+    for (i = 0; i < bit_count; i++) {
         /* shift the reversed number to the left to make space for the next bit */
         reversed <<= 1;
         /* add the least significant bit of num to the reversed number */
@@ -67,13 +69,14 @@ UINT32 BITS_REVERSE_UINT32(UINT32 value)
 {
     int bit_count;
     UINT32 reversed;
+    int i;
 
     reversed = (UINT32)0;
 
     /* number of bits in the type (e.g., 32 for unsigned long) */
     bit_count = sizeof(value) * CHAR_BIT;
 
-    for (int i = 0; i < bit_count; i++) {
+    for (i = 0; i < bit_count; i++) {
         /* shift the reversed number to the left to make space for the next bit */
         reversed <<= 1;
         /* add the least significant bit of num to the reversed number */
@@ -91,13 +94,14 @@ UINT64 BITS_REVERSE_UINT64(UINT64 value)
 {
     int bit_count;
     UINT64 reversed;
+    int i;
 
     reversed = (UINT64)0;
 
     /* number of bits in the type (e.g., 64 for unsigned long long) */
     bit_count = sizeof(value) * CHAR_BIT;
 
-    for (int i = 0; i < bit_count; i++) {
+    for (i = 0; i < bit_count; i++) {
         /* shift the reversed number to the left to make space for the next bit */
         reversed <<= 1;
         /* add the least significant bit of num to the reversed number */

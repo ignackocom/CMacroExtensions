@@ -39,7 +39,7 @@
 *   compatible with C89
 *
 * \code
-*   ...
+*   ... 
 *   ASSERT_MESSAGE(2 == i, "custom error message!");
 *	...
 * \endcode
@@ -48,8 +48,8 @@
         #define ASSERT_MESSAGE(condition, message) \
             do { \
                 if (!(condition)) { \
-                    fprintf(stderr, "[ASSERTION FAILED] %s:%zu in %s(), %s, %s\n", \
-                            __FILE__, (size_t)__LINE__, __func__, #condition, (message)); \
+                    fprintf(stderr, "[ASSERTION FAILED] %s:%ld in %s(), %s, %s\n", \
+                            __FILE__, (long)__LINE__, __func__, #condition, (message)); \
                     abort(); \
                 } \
             } while(0)
@@ -81,8 +81,8 @@
         #define ASSERT_MESSAGE(condition, message) \
             do { \
                 if (!(condition)) { \
-                    fprintf(stderr, "[ASSERTION FAILED] %s:%zu, %s, %s\n", \
-                            __FILE__, (size_t)__LINE__, #condition, (message)); \
+                    fprintf(stderr, "[ASSERTION FAILED] %s:%ld, %s, %s\n", \
+                            __FILE__, (long)__LINE__, #condition, (message)); \
                     abort(); \
                 } \
             } while(0)

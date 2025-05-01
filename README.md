@@ -4,9 +4,13 @@ C89, C99 and >C99 compatible, CPP98 and >CPP98 compatible, Embedded C compatible
 
 Example of use
 
-```c
+```
 #include <stdio.h>
 #include <stdarg.h>
+
+#if defined(__TURBOC__)
+#include <conio.h>
+#endif /* defined(__TURBOC__) */
 
 
 
@@ -58,6 +62,11 @@ BEGIN
 END
 
 
+#if defined(__TURBOC__)
+getch();
+#endif /* defined(__TURBOC__) */
+
+
 /* CMacroExtensions.h */
 {
     printf("CMACROEXTENSIONS_VERSION() = %ld\n", CMACROEXTENSIONS_VERSION());
@@ -66,22 +75,32 @@ END
 }
 
 
+#if defined(__TURBOC__)
+getch();
+#endif /* defined(__TURBOC__) */
+
+
 /* Align.h */
 {
     printf("Align test\n");
 
-    printf("ALIGN_UP(24, 16)   = %zu\n", ALIGN_UP(24, 16));
-    printf("ALIGN_DOWN(24, 16) = %zu\n", ALIGN_DOWN(24, 16));
+    printf("ALIGN_UP(24, 16)   = %ld\n", (long)ALIGN_UP(24, 16));
+    printf("ALIGN_DOWN(24, 16) = %ld\n", (long)ALIGN_DOWN(24, 16));
 
     printf("IS_ALIGNED(24, 4)  = %d\n", IS_ALIGNED(24, 4));
     printf("IS_ALIGNED(24, 16) = %d\n", IS_ALIGNED(24, 16));
 
     printf("ALIGN_PTR(24, 16)  = %p\n", ALIGN_PTR((void*)24, 16));
 
-    printf("ALIGN_SIZE(24, 16) = %zu\n", ALIGN_SIZE(24, 16));
+    printf("ALIGN_SIZE(24, 16) = %ld\n", (long)ALIGN_SIZE(24, 16));
 
     printf("\n\n");
 }
+
+
+#if defined(__TURBOC__)
+getch();
+#endif /* defined(__TURBOC__) */
 
 
 /* ArgUsed.h */
@@ -98,6 +117,11 @@ END
 }
 
 
+#if defined(__TURBOC__)
+getch();
+#endif /* defined(__TURBOC__) */
+
+
 /* Array.h */
 {
 #if defined(__clang__)
@@ -109,8 +133,8 @@ END
     printf("Array test\n");
 
     printf("arry                                      = ['%c','%c','%c','%c','%c']\n", arry[0], arry[1], arry[2], arry[3], arry[4]);
-    printf("ARRAY_GET_SIZE(arry)                      = %zu\n", ARRAY_GET_SIZE(arry));
-    printf("ARRAY_GET_ITEM_SIZE(arry)                 = %zu\n", ARRAY_GET_ITEM_SIZE(arry));
+    printf("ARRAY_GET_SIZE(arry)                      = %ld\n", (long)ARRAY_GET_SIZE(arry));
+    printf("ARRAY_GET_ITEM_SIZE(arry)                 = %ld\n", (long)ARRAY_GET_ITEM_SIZE(arry));
     printf("(void*)ARRAY_GET_ITEM_PTR(arry, 0)        = %p\n", (void*)ARRAY_GET_ITEM_PTR(arry, 0));
 
     printf("ARRAY_GET_ITEM(arry, 0)                   = %c\n", ARRAY_GET_ITEM(arry, 0));
@@ -156,6 +180,11 @@ END
 }
 
 
+#if defined(__TURBOC__)
+getch();
+#endif /* defined(__TURBOC__) */
+
+
 /* Assert.h */
 {
     INT i;
@@ -168,6 +197,11 @@ END
 
     printf("\n\n");
 }
+
+
+#if defined(__TURBOC__)
+getch();
+#endif /* defined(__TURBOC__) */
 
 
 /* Bcd.h */
@@ -190,21 +224,31 @@ END
 }
 
 
+#if defined(__TURBOC__)
+getch();
+#endif /* defined(__TURBOC__) */
+
+
 /* BitsPerType.h */
 {
     printf("BitsPerType test\n");
 
-    printf("char      Bits %zu\n", BITS_PER_TYPE(char));
-    printf("short     Bits %zu\n", BITS_PER_TYPE(short));
-    printf("int       Bits %zu\n", BITS_PER_TYPE(int));
-    printf("long      Bits %zu\n", BITS_PER_TYPE(long));
+    printf("char      Bits %ld\n", (long)BITS_PER_TYPE(char));
+    printf("short     Bits %ld\n", (long)BITS_PER_TYPE(short));
+    printf("int       Bits %ld\n", (long)BITS_PER_TYPE(int));
+    printf("long      Bits %ld\n", (long)BITS_PER_TYPE(long));
 #if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus > 199711L
-    printf("long long Bits %zu\n", BITS_PER_TYPE(long long));
+    printf("long long Bits %ld\n", (long)BITS_PER_TYPE(long long));
 #endif /* defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus > 199711L */
-    printf("size_t    Bits %zu\n", BITS_PER_TYPE(size_t));
+    printf("size_t    Bits %ld\n", (long)BITS_PER_TYPE(size_t));
 
     printf("\n\n");
 }
+
+
+#if defined(__TURBOC__)
+getch();
+#endif /* defined(__TURBOC__) */
 
 
 /* BitsPrint.h */
@@ -226,6 +270,11 @@ END
 }
 
 
+#if defined(__TURBOC__)
+getch();
+#endif /* defined(__TURBOC__) */
+
+
 /* BitsReverse.h */
 {
     printf("BitsReverse test\n");
@@ -243,6 +292,11 @@ END
 
     printf("\n\n");
 }
+
+
+#if defined(__TURBOC__)
+getch();
+#endif /* defined(__TURBOC__) */
 
 
 /* BitsRotate.h */
@@ -334,6 +388,11 @@ END
 }
 
 
+#if defined(__TURBOC__)
+getch();
+#endif /* defined(__TURBOC__) */
+
+
 /* BitsShift.h */
 {
     UINT8               byte;
@@ -422,8 +481,15 @@ END
     printf("\n\n");
 }
 
+
+#if defined(__TURBOC__)
+getch();
+#endif /* defined(__TURBOC__) */
+
+
 /* Bits.h */
 {
+    int i;
     UINT8  byte;
     UINT16 word;
     UINT32 dword;
@@ -465,11 +531,11 @@ END
     printf("\n");
 
     printf("BIT_IS_SET               = ");
-    for (int i = 0; i < 8; i++) printf("%c", ((int)BIT_IS_SET(UINT8, byte, 7 - i)) ? 't' : 'f');
+    for (i = 0; i < 8; i++) printf("%c", ((int)BIT_IS_SET(UINT8, byte, 7 - i)) ? 't' : 'f');
     printf("\n");
 
     printf("BIT_IS_CLEARED           = ");
-    for (int i = 0; i < 8; i++) printf("%c", ((int)BIT_IS_CLEARED(UINT8, byte, 7 - i)) ? 't' : 'f');
+    for (i = 0; i < 8; i++) printf("%c", ((int)BIT_IS_CLEARED(UINT8, byte, 7 - i)) ? 't' : 'f');
     printf("\n");
 
     /* lsb */
@@ -510,6 +576,14 @@ END
 
     printf("\n");
 
+
+
+#if defined(__TURBOC__)
+    getch();
+#endif /* defined(__TURBOC__) */
+
+
+
     /* word */
     word = 0xF0F0;
 
@@ -542,11 +616,11 @@ END
     printf("\n");
 
     printf("BIT_IS_SET               = ");
-    for (int i = 0; i < 16; i++) printf("%c", ((int)BIT_IS_SET(UINT16, word, 15 - i)) ? 't' : 'f');
+    for (i = 0; i < 16; i++) printf("%c", ((int)BIT_IS_SET(UINT16, word, 15 - i)) ? 't' : 'f');
     printf("\n");
 
     printf("BIT_IS_CLEARED           = ");
-    for (int i = 0; i < 16; i++) printf("%c", ((int)BIT_IS_CLEARED(UINT16, word, 15 - i)) ? 't' : 'f');
+    for (i = 0; i < 16; i++) printf("%c", ((int)BIT_IS_CLEARED(UINT16, word, 15 - i)) ? 't' : 'f');
     printf("\n");
 
     /* lsb */
@@ -622,11 +696,11 @@ END
     printf("\n");
 
     printf("BIT_IS_SET                = ");
-    for (int i = 0; i < 32; i++) printf("%c", ((int)BIT_IS_SET(UINT32, dword, 31 - i)) ? 't' : 'f');
+    for (i = 0; i < 32; i++) printf("%c", ((int)BIT_IS_SET(UINT32, dword, 31 - i)) ? 't' : 'f');
     printf("\n");
 
     printf("BIT_IS_CLEARED            = ");
-    for (int i = 0; i < 32; i++) printf("%c", ((int)BIT_IS_CLEARED(UINT32, dword, 31 - i)) ? 't' : 'f');
+    for (i = 0; i < 32; i++) printf("%c", ((int)BIT_IS_CLEARED(UINT32, dword, 31 - i)) ? 't' : 'f');
     printf("\n");
 
     printf("BITS_SET(dword, 0xF)      = ");
@@ -691,6 +765,15 @@ END
     printf("\n");
 
 
+
+
+#if defined(__TURBOC__)
+    getch();
+#endif /* defined(__TURBOC__) */
+
+
+
+
 #if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L || defined(__cplusplus) && __cplusplus > 199711L
 
     qword = 0xFFFF0000;
@@ -724,11 +807,11 @@ END
     printf("\n");
 
     printf("BIT_IS_SET                = ");
-    for (int i = 0; i < 64; i++) printf("%c", ((int)BIT_IS_SET(UINT64, qword, 63 - i)) ? 't' : 'f');
+    for (i = 0; i < 64; i++) printf("%c", ((int)BIT_IS_SET(UINT64, qword, 63 - i)) ? 't' : 'f');
     printf("\n");
 
     printf("BIT_IS_CLEARED            = ");
-    for (int i = 0; i < 64; i++) printf("%c", ((int)BIT_IS_CLEARED(UINT64, qword, 63 - i)) ? 't' : 'f');
+    for (i = 0; i < 64; i++) printf("%c", ((int)BIT_IS_CLEARED(UINT64, qword, 63 - i)) ? 't' : 'f');
     printf("\n");
 
     /* lsb */
@@ -782,6 +865,12 @@ END
     printf("\n\n");
 }
 
+
+#if defined(__TURBOC__)
+getch();
+#endif /* defined(__TURBOC__) */
+
+
 /* Bool.h */
 {
     BOOL b1;
@@ -804,6 +893,11 @@ END
 }
 
 
+#if defined(__TURBOC__)
+getch();
+#endif /* defined(__TURBOC__) */
+
+
 /* Cast.h */
 {
     UINT8 byte = 1;
@@ -823,6 +917,11 @@ END
 }
 
 
+#if defined(__TURBOC__)
+getch();
+#endif /* defined(__TURBOC__) */
+
+
 /* Concatenate.h */
 {
     CHAR Hello, World, HelloWorld;
@@ -837,6 +936,11 @@ END
 
     printf("\n\n");
 }
+
+
+#if defined(__TURBOC__)
+getch();
+#endif /* defined(__TURBOC__) */
 
 
 /* CTypeExt.h */
@@ -872,6 +976,11 @@ END
 }
 
 
+#if defined(__TURBOC__)
+getch();
+#endif /* defined(__TURBOC__) */
+
+
 /* Datatype.h */
 {
     UINT32 ui32 = 0x12345678L;
@@ -887,12 +996,22 @@ END
 }
 
 
+#if defined(__TURBOC__)
+getch();
+#endif /* defined(__TURBOC__) */
+
+
 /* DatatypeCpu.h */
 {
     printf("DatatypeCpu test\n");
 
     printf("\n\n");
 }
+
+
+#if defined(__TURBOC__)
+getch();
+#endif /* defined(__TURBOC__) */
 
 
 /* DatatypeWin.h */
@@ -938,6 +1057,11 @@ END
 }
 
 
+#if defined(__TURBOC__)
+getch();
+#endif /* defined(__TURBOC__) */
+
+
 /* Date.h */
 {
     printf("Date test\n");
@@ -958,6 +1082,11 @@ END
 }
 
 
+#if defined(__TURBOC__)
+getch();
+#endif /* defined(__TURBOC__) */
+
+
 /* Debug.h */
 {
     printf("Debug test\n");
@@ -966,6 +1095,11 @@ END
 
     printf("\n\n");
 }
+
+
+#if defined(__TURBOC__)
+getch();
+#endif /* defined(__TURBOC__) */
 
 
 /* Dec.h */
@@ -987,6 +1121,11 @@ END
 
     printf("\n\n");
 }
+
+
+#if defined(__TURBOC__)
+getch();
+#endif /* defined(__TURBOC__) */
 
 
 /* Dump.h */
@@ -1039,6 +1178,11 @@ END
 }
 
 
+#if defined(__TURBOC__)
+getch();
+#endif /* defined(__TURBOC__) */
+
+
 /* Exclude.h */
 {
     printf("Exclude test\n");
@@ -1059,6 +1203,11 @@ END
 }
 
 
+#if defined(__TURBOC__)
+getch();
+#endif /* defined(__TURBOC__) */
+
+
 /* File.h */
 #if defined(__clang__)
 #pragma clang unsafe_buffer_usage begin
@@ -1077,6 +1226,11 @@ END
 #endif /* defined(__clang__) */
 
 
+#if defined(__TURBOC__)
+getch();
+#endif /* defined(__TURBOC__) */
+
+
 /* Func.h */
 {
     func_("main");
@@ -1087,6 +1241,26 @@ END
 
     printf("\n\n");
 }
+
+
+#if defined(__TURBOC__)
+getch();
+#endif /* defined(__TURBOC__) */
+
+
+/* Glue.h */
+{
+    printf("Glue test\n");
+
+    printf("GLUE(\"abc\",\"def\") = %s\n", GLUE("abc", "def"));
+
+    printf("\n\n");
+}
+
+
+#if defined(__TURBOC__)
+getch();
+#endif /* defined(__TURBOC__) */
 
 
 /* Hex.h */
@@ -1118,6 +1292,12 @@ END
     printf("\n\n");
 }
 
+
+#if defined(__TURBOC__)
+getch();
+#endif /* defined(__TURBOC__) */
+
+
 /* Likely.h */
 {
     int a;
@@ -1132,6 +1312,12 @@ END
 
     printf("\n\n");
 }
+
+
+#if defined(__TURBOC__)
+getch();
+#endif /* defined(__TURBOC__) */
+
 
 /* Logic.h */
 {
@@ -1154,6 +1340,12 @@ END
 
     printf("\n\n");
 }
+
+
+#if defined(__TURBOC__)
+getch();
+#endif /* defined(__TURBOC__) */
+
 
 /* Math.h */
 {
@@ -1213,6 +1405,11 @@ END
 }
 
 
+#if defined(__TURBOC__)
+getch();
+#endif /* defined(__TURBOC__) */
+
+
 /* MathAngle.h */
 {
     printf("MathAngle test\n");
@@ -1230,28 +1427,36 @@ END
 }
 
 
+#if defined(__TURBOC__)
+getch();
+#endif /* defined(__TURBOC__) */
+
+
 /* Member.h */
 {
     struct abc { int a; short b; short c; };
 
-    struct abc def;
-
     printf("Member test\n");
 
-    printf("MEMBER_SIZEOF(abc, a)      = %zu\n", MEMBER_SIZEOF(struct abc, a));
-    printf("MEMBER_SIZEOF(abc, b)      = %zu\n", MEMBER_SIZEOF(struct abc, b));
-    printf("MEMBER_SIZEOF(abc, c)      = %zu\n", MEMBER_SIZEOF(struct abc, c));
+    printf("MEMBER_SIZEOF(abc, a)      = %ld\n", (long)MEMBER_SIZEOF(struct abc, a));
+    printf("MEMBER_SIZEOF(abc, b)      = %ld\n", (long)MEMBER_SIZEOF(struct abc, b));
+    printf("MEMBER_SIZEOF(abc, c)      = %ld\n", (long)MEMBER_SIZEOF(struct abc, c));
     printf("\n");
 
-    printf("MEMBER_OFFSETOF(abc, a)    = %zu\n", MEMBER_OFFSETOF(struct abc, a));
-    printf("MEMBER_OFFSETOF(abc, b)    = %zu\n", MEMBER_OFFSETOF(struct abc, b));
-    printf("MEMBER_OFFSETOF(abc, c)    = %zu\n", MEMBER_OFFSETOF(struct abc, c));
+    printf("MEMBER_OFFSETOF(abc, a)    = %ld\n", (long)MEMBER_OFFSETOF(struct abc, a));
+    printf("MEMBER_OFFSETOF(abc, b)    = %ld\n", (long)MEMBER_OFFSETOF(struct abc, b));
+    printf("MEMBER_OFFSETOF(abc, c)    = %ld\n", (long)MEMBER_OFFSETOF(struct abc, c));
     printf("\n");
 
-    printf("MEMBER_OFFSETOFEND(abc, c) = %zu\n", MEMBER_OFFSETOFEND(struct abc, c));
+    printf("MEMBER_OFFSETOFEND(abc, c) = %ld\n", (long)MEMBER_OFFSETOFEND(struct abc, c));
 
     printf("\n\n");
 }
+
+
+#if defined(__TURBOC__)
+getch();
+#endif /* defined(__TURBOC__) */
 
 
 /* New.h */
@@ -1260,7 +1465,7 @@ END
 
     printf("New and Delete test\n");
 
-    vptr = NEW(10);
+    vptr = (void*)NEW(10);
     if(vptr != NULL)
     {
         printf("allocated\n");
@@ -1272,6 +1477,11 @@ END
 }
 
 
+#if defined(__TURBOC__)
+getch();
+#endif /* defined(__TURBOC__) */
+
+
 /* Paste.h */
 {
     printf("Paste test\n");
@@ -1280,6 +1490,11 @@ END
 
     printf("\n\n");
 }
+
+
+#if defined(__TURBOC__)
+getch();
+#endif /* defined(__TURBOC__) */
 
 
 /* Ret.h */
@@ -1298,6 +1513,11 @@ END
 }
 
 
+#if defined(__TURBOC__)
+getch();
+#endif /* defined(__TURBOC__) */
+
+
 /* Return.h */
 {
     printf("Return test\n");
@@ -1311,6 +1531,11 @@ END
 }
 
 
+#if defined(__TURBOC__)
+getch();
+#endif /* defined(__TURBOC__) */
+
+
 /* Status.h */
 {
     printf("Status test\n");
@@ -1320,6 +1545,11 @@ END
 
     printf("\n\n");
 }
+
+
+#if defined(__TURBOC__)
+getch();
+#endif /* defined(__TURBOC__) */
 
 
 /* StdargExt.h */
@@ -1335,6 +1565,12 @@ END
 
     printf("\n\n");
 }
+
+
+#if defined(__TURBOC__)
+getch();
+#endif /* defined(__TURBOC__) */
+
 
 /* StringExt.h */
 {
@@ -1353,6 +1589,12 @@ END
     printf("\n\n");
 }
 
+
+#if defined(__TURBOC__)
+getch();
+#endif /* defined(__TURBOC__) */
+
+
 /* Stringify.h */
 {
     INT variable = 5;
@@ -1363,6 +1605,11 @@ END
 
     printf("\n\n");
 }
+
+
+#if defined(__TURBOC__)
+getch();
+#endif /* defined(__TURBOC__) */
 
 
 /* Swap.h */
@@ -1396,6 +1643,11 @@ END
 }
 
 
+#if defined(__TURBOC__)
+getch();
+#endif /* defined(__TURBOC__) */
+
+
 /* Time.h */
 {
     printf("Time test\n");
@@ -1416,6 +1668,11 @@ END
 }
 
 
+#if defined(__TURBOC__)
+getch();
+#endif /* defined(__TURBOC__) */
+
+
 /* Trace.h */
 {
     printf("Trace test\n");
@@ -1424,6 +1681,11 @@ END
 
     printf("\n\n");
 }
+
+
+#if defined(__TURBOC__)
+getch();
+#endif /* defined(__TURBOC__) */
 
 
 return(0);
@@ -1470,3 +1732,6 @@ INT_MAIN_ARGC_ARGV_END
 2025 04 20 stringext.h/c functions added<br/>
 2025 04 20 systemhalt.h/c halt function added<br/>
 2025 04 21 hex.c/h functions added<br/>
+2025 05 01 Better C89 support added<br/>
+2025 05 01 Glue.h header with macro added<br/>
+2025 05 01 File.h MSDOS support added<br/>

@@ -173,7 +173,8 @@
 */
 #define ARRAY_SET(array, size, value) \
     do { \
-        for (size_t _idx_ = 0; _idx_ < (size); ++_idx_) \
+        size_t _idx_; \
+        for (_idx_ = 0; _idx_ < (size); ++_idx_) \
             (array)[_idx_] = (value); \
     } while (0)
 
@@ -231,8 +232,9 @@
 */
 #define ARRAY_REVERSE(array, size) \
     do { \
-        size_t _start_ = 0; \
-        size_t _end_ = (size) - 1; \
+        size_t _start_, _end_; \
+        _start_ = 0; \
+        _end_ = (size) - 1; \
         while (_start_ < _end_) { \
             /* Swap (array)[_start_] and (array)[_end_] */ \
             (array)[_start_] ^= (array)[_end_]; \
@@ -269,8 +271,9 @@
 *
 */
 #define ARRAY_SORT_ASCENDING(array, size) do { \
-    for (size_t _idx_ = 0; _idx_ < (size) - 1; _idx_++) { \
-        for (size_t _jdx_ = 0; _jdx_ < (size) - _idx_ - 1; _jdx_++) { \
+    size_t _idx_,_jdx_; \
+    for (_idx_ = 0; _idx_ < (size) - 1; _idx_++) { \
+        for (_jdx_ = 0; _jdx_ < (size) - _idx_ - 1; _jdx_++) { \
             if ((array)[_jdx_] > (array)[_jdx_ + 1]) { \
                 /* Swap (array)[_jdx_] and (array)[_jdx_ + 1] */ \
                 (array)[_jdx_] ^= (array)[_jdx_ + 1]; \
@@ -307,8 +310,9 @@
 *
 */
 #define ARRAY_SORT_DESCENDING(array, size) do { \
-    for (size_t _idx_ = 0; _idx_ < (size) - 1; _idx_++) { \
-        for (size_t _jdx_ = 0; _jdx_ < (size) - _idx_ - 1; _jdx_++) { \
+    size_t _idx_,_jdx_; \
+    for (_idx_ = 0; _idx_ < (size) - 1; _idx_++) { \
+        for (_jdx_ = 0; _jdx_ < (size) - _idx_ - 1; _jdx_++) { \
             if ((array)[_jdx_] < (array)[_jdx_ + 1]) { \
                 /* Swap (array)[_jdx_] and (array)[_jdx_ + 1] */ \
                 (array)[_jdx_] ^= (array)[_jdx_ + 1]; \
