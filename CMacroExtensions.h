@@ -28,6 +28,7 @@
 #include "BitsRotate.h"
 #include "BitsShift.h"
 #include "Bool.h"
+#include "Call.h"
 #include "Cast.h"
 #include "Concatenate.h"
 #include "CTypeExt.h"
@@ -35,6 +36,7 @@
 #include "DatatypeCpu.h"
 #include "DatatypeWin.h"
 #include "Debug.h"
+#include "DebugFunc.h"
 #include "Date.h"
 #include "Dec.h"
 #include "Deprecated.h"
@@ -83,6 +85,7 @@
 #include "Trace.h"
 #include "Unknown.h"
 #include "Unused.h"
+#include "Volatile.h"
 
 
 #ifdef __cplusplus

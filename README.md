@@ -898,6 +898,21 @@ getch();
 #endif /* defined(__TURBOC__) */
 
 
+/* Call.h */
+{
+    printf("Call test\n");
+
+    CALL(printf, ("%d %d %s\n", 1, 2, "Call test"));
+
+    printf("\n\n");
+}
+
+
+#if defined(__TURBOC__)
+getch();
+#endif /* defined(__TURBOC__) */
+
+
 /* Cast.h */
 {
     UINT8 byte = 1;
@@ -1092,6 +1107,25 @@ getch();
     printf("Debug test\n");
 
     DEBUG_MESSAGE("debug message");
+
+    printf("\n\n");
+}
+
+
+#if defined(__TURBOC__)
+getch();
+#endif /* defined(__TURBOC__) */
+
+
+/* DebugFunc.h */
+{
+    printf("DebugFunc test\n");
+
+    DEBUG_ENTER("mainfunc");
+
+    printf("function body\n");
+
+    DEBUG_EXIT("mainfunc");
 
     printf("\n\n");
 }
@@ -1688,6 +1722,27 @@ getch();
 #endif /* defined(__TURBOC__) */
 
 
+/* Volatile.h */
+{
+    int a;
+    a = 1;
+
+    printf("Volatile test\n");
+
+    printf("a = %d\n", VOLATILE_READ(int, a));
+    VOLATILE_WRITE(int, a, 2);
+    printf("a = %d\n", VOLATILE_READ(int, a));
+
+    printf("\n\n");
+}
+
+
+#if defined(__TURBOC__)
+getch();
+#endif /* defined(__TURBOC__) */
+
+
+
 return(0);
 
 INT_MAIN_ARGC_ARGV_END
@@ -1735,3 +1790,6 @@ INT_MAIN_ARGC_ARGV_END
 2025 05 01 Better C89 support added<br/>
 2025 05 01 Glue.h header with macro added<br/>
 2025 05 01 File.h MSDOS support added<br/>
+2025 05 04 Volatile.h macros added<br/>
+2025 05 04 DebugFunc.h macros added<br/>
+2025 05 04 Call.h macros added<br/>
