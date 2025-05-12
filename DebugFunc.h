@@ -35,16 +35,23 @@
 * Example of use
 *
 * ...
-* char* strcpy(char* pDest, char* pSrc)
+*
+* #include <string.h>
+*
+* char* strcpy(char* RESTRICT dst, const char* RESTRICT src)
 * {
+*	size_t length;
+*
 *	DEBUG_ENTER("strcpy");
-* 
-*	while (*pDest = *pSrc);
-* 
+*
+*	length = strlen(src);
+*	memcpy(dst, src, length + 1);
+*
 *	DEBUG_EXIT("strcpy");
-* 
-*   return(pDest);
+*
+*	return dst;
 * }
+*
 * ...
 *
 */
