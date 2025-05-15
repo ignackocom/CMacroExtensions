@@ -1,17 +1,21 @@
 /******************************************************************************
 * \file      Datatype.h
-* \author    Peter Potrok
+* \version   2025.03.18
+* \author    Peter Potrok ( @ignackocom )
+*            ignacko.com@outlook.com
+*            https://github.com/ignackocom
 * \copyright Copyright (c) 1994 - 2025
 *            MIT License (see License.txt file)
 * \brief     Complete language data type definitions
 * \details
 *
-* \see       https://en.cppreference.com/w/c
+* \see		 https://github.com/ignackocom
+*			 https://en.cppreference.com/w/c
 *            and other resources
 ******************************************************************************/
 
-#ifndef LANGUAGEDATATYPE_H
-#define LANGUAGEDATATYPE_H		20250318L
+#ifndef DATATYPE_H
+#define DATATYPE_H		20250318L
 
 
 #if !defined(__cplusplus)
@@ -264,4 +268,4 @@ typedef     LongDouble      F128;
 #endif /* !defined(__SDCC) && !defined(SDCC) */
 
 
-#endif /* LANGUAGEDATATYPE_H */
+#endif /* DATATYPE_H */
