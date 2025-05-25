@@ -1793,3 +1793,4 @@ INT_MAIN_ARGC_ARGV_END
 2025 05 04 Volatile.h macros added<br/>
 2025 05 04 DebugFunc.h macros added<br/>
 2025 05 04 Call.h macros added<br/>
+2025 05 25 Datatype.h C89 and CPP98 UInt32 and Int32 bug fixed<br/>
